@@ -1,0 +1,33 @@
+nav {
+    padding: 20px;
+    margin: auto;
+    max-width: 2000px;
+    display: flex;
+    flex-direction: row;
+    background-color: #545454;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #d9d9d9;
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    padding: 8px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #d9d9d9;
+}
+
+
+li a:hover {
+    background-color: slateblue;
+}  
