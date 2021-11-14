@@ -6,7 +6,6 @@ nav {
     display: flex;
     flex-direction: row;
     background-color: var(--primary-color);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: var(--light-color);
 
 }
@@ -36,7 +35,6 @@ li {
 li a {
     display: block;
     padding: 14px 16px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: medium;
     color: var(--dark-color);
     

@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bethel-bakery-frontend';
+  count=0;
+  counter()
+  {
+    this.count++
+  }
+
 }
