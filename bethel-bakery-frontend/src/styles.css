@@ -17,17 +17,23 @@ a {
   --max-width: 1100px;
 }
 
-.btn {
-    background-color: var(--light-color); 
-    border: none;
-    color: var(--dark-color);
+button {
+    background-color: var(--dark-color); 
+    /* border: 2px solid var(--dark-color); */
+    color: var(--light-color);
     padding: 12px 28px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 12px;
-    border-radius: 4px
+    font-size: 18px;
+    border-radius: 8px;
 }
+
+button:hover {
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: var(--light-color);}
 

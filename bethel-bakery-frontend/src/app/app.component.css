@@ -36,10 +36,12 @@ li a {
     display: block;
     padding: 14px 16px;
     font-size: medium;
+    font-weight: bold;
     color: var(--dark-color);
     
 }
 
 li a:hover {
     background-color: var(--secondary-color);
+    border-radius: 8px
 }  
