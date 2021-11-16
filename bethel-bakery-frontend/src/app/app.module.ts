@@ -7,7 +7,8 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { ShopComponent } from './shop/shop.component';
-
+import { ProductCardsComponent } from './components/product-cards/product-cards.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -18,13 +19,14 @@ import { ShopComponent } from './shop/shop.component';
     LoginComponent,
     OrderHistoryComponent,
     ShopComponent,
-
+    ProductCardsComponent,
+    
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
- 
+    HttpClientModule,
 
   ],
   providers: [],
