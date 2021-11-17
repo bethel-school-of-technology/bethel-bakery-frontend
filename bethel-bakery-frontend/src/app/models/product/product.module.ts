@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class ProductModule { 
-  id: number = 0;
+  productId: number = 0;
   name: string = "";
   price: number = 0;
   imgUrl: string = "";

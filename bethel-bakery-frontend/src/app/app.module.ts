@@ -9,6 +9,7 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
 import { ShopComponent } from './shop/shop.component';
 import { ProductCardsComponent } from './components/product-cards/product-cards.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 
 
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     OrderHistoryComponent,
     ShopComponent,
     ProductCardsComponent,
+    NavBarComponent,
     
 
   ],

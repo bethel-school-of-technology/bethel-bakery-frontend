@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductModule } from 'src/app/models/product/product.module';
+import { CartDataService } from 'src/app/services/cart-data/cart-data.service';
 import { ProductDataService } from 'src/app/services/product-data.service';
 
 @Component({
@@ -13,12 +14,23 @@ export class ProductCardsComponent implements OnInit {
   products: ProductModule[] = [];
 
   //Constructor
-  constructor(private productService: ProductDataService) { }
+  constructor(private productService: ProductDataService, private cartDataService: CartDataService) { }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(products => this.products = products);
-    console.log("hi");
-    
+    this.getProducts();
   }
 
+  addProductToCart = (productIndex: number) => {
+    this.getProducts();
+    console.log(this.products);
+    this.cartDataService.saveProduct(this.products[productIndex].productId).subscribe(
+      response => {
+        let num: number = this.cartDataService.getTotalInCart();
+      });
+  }
+  
+  getProducts = () => {
+    this.productService.getProducts().subscribe(products => this.products = products);
+  }
+  
 }
