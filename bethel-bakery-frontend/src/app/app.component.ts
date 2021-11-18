@@ -7,10 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bethel-bakery-frontend';
-  count=0;
+  count = 0;
+  // tslint:disable-next-line: typedef
   counter()
   {
-    this.count++
+    this.count++;
   }
 
 }

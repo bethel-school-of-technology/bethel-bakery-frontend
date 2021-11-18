@@ -10,7 +10,7 @@ import { ProductCardService } from '../services/product-card.service';
 export class ProductCardComponent implements OnInit {
 
   products: ProductModule[] = [];
-  
+
   constructor(private productCardService: ProductCardService) { }
 
   ngOnInit(): void {
