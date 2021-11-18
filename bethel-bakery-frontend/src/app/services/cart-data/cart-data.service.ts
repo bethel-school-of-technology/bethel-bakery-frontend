@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CartItem } from 'src/app/models/cart-item';
+import { CartItem } from 'src/app/models/cart-item/cart-item';
+
 
 
 

@@ -8,18 +8,7 @@ import { Money } from './money/money.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'bethel-bakery-frontend';
-  count=0;
 
-  constructor(private cartDataService: CartDataService) {
-  }
-  counter()
-  {
-    
-  }
-
-  public testCode(): void {
-    let num: number[] = [8,6,4,88,60];
-    console.log(Money.formatNumberToMoney(0.6));
-  }
+  constructor() {}
+  
 }
