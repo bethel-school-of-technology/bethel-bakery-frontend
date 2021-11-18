@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CartItemModule } from 'src/app/models/cart-item/cart-item.module';
-import { ProductModule } from 'src/app/models/product/product.module';
+import { CartItem } from 'src/app/models/cart-item';
+
+
 
 const httpOptions = 
 {
@@ -17,7 +18,7 @@ export class CartDataService {
   addToCartUrl: string = "http://localhost:8080/cart/add"
   cartUrl: string = "http://localhost:8080/cart"
 
-  cartItems: CartItemModule[] = [];
+  cartItems: CartItem[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -25,9 +26,9 @@ export class CartDataService {
     return this.http.post<any>(this.addToCartUrl + "/" + productId + "/1", productId, httpOptions);
   }
 
-  getCartItems ():Observable<CartItemModule[]> 
+  getCartItems ():Observable<CartItem[]> 
   {
-    return this.http.get<CartItemModule[]>(this.cartUrl);
+    return this.http.get<CartItem[]>(this.cartUrl);
   }
 
   getTotalInCart = () :number => 

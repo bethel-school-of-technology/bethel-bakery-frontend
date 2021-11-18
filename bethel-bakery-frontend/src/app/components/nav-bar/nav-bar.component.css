@@ -2,22 +2,32 @@ nav {
   padding: 20px;
   margin: auto;
   max-width: 2000px;
-  display: flex;
-  flex-direction: row;
   background-color: var(--primary-color);
   color: var(--light-color);
+  
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding-left: 700px;
+.flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
 }
 
-ol {
+ul{
   list-style-type: none;
+}
+
+
+
+.checkout {
   margin: 0;
-  padding-left: 50px;
+  padding: 0;
+}
+
+.links {
+  margin: 0;
+  padding: 0;
 }
 
 li {

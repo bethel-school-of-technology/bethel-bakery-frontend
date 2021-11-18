@@ -1,27 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { LoginComponent } from './components/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CartComponent } from './cart/cart.component';
-import { LoginComponent } from './login/login.component';
-import { OrderHistoryComponent } from './order-history/order-history.component';
-import { ShopComponent } from './shop/shop.component';
 import { ProductCardsComponent } from './components/product-cards/product-cards.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
+import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CartComponent,
-    LoginComponent,
-    OrderHistoryComponent,
-    ShopComponent,
     ProductCardsComponent,
     NavBarComponent,
+    CheckoutComponent,
+    CartDetailsComponent,
+    LoginComponent,
+    OrderHistoryComponent,
+    CustomerDetailsComponent
     
 
   ],

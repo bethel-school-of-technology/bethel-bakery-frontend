@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable, of } from 'rxjs';
-import { ProductModule } from '../models/product/product.module';
+import { Product } from '../models/product';
+
 
 const httpOptions = 
 {
@@ -17,8 +18,8 @@ export class ProductDataService {
   constructor(private http: HttpClient) {}
 
   //Methods
-  getProducts ():Observable<ProductModule[]> 
+  getProducts ():Observable<Product[]> 
   {
-    return this.http.get<ProductModule[]>(this.productUrl);
+    return this.http.get<Product[]>(this.productUrl);
   } 
 }
