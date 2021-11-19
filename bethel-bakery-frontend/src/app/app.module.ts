@@ -10,6 +10,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 
 
@@ -22,8 +23,9 @@ import { CustomerDetailsComponent } from './components/customer-details/customer
     CartDetailsComponent,
     LoginComponent,
     OrderHistoryComponent,
-    CustomerDetailsComponent
-    
+    CustomerDetailsComponent,
+    ConfirmationComponent
+
 
   ],
   imports: [

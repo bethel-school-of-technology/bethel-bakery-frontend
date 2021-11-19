@@ -10,10 +10,10 @@ import { ProductDataService } from 'src/app/services/product-data/product-data.s
 })
 export class ProductCardsComponent implements OnInit {
 
-  //Properties
+  // Properties
   products: Product[] = [];
 
-  //Constructor
+  // Constructor
   constructor(private productService: ProductDataService, private cartDataService: CartDataService) { }
 
   ngOnInit(): void {
@@ -28,9 +28,9 @@ export class ProductCardsComponent implements OnInit {
         let num: number = this.cartDataService.getTotalInCart();
       });
   }
-  
+
   getProducts = () => {
     this.productService.getProducts().subscribe(products => this.products = products);
   }
-  
+
 }

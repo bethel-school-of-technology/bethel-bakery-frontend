@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-details',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) {}
+
 
   ngOnInit(): void {
   }
+  btnClick =  () => {
+    this.router.navigateByUrl('/confirmation.component.html');
+    // subscribe?
 
+
+ }
 }

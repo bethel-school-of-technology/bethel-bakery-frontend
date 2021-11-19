@@ -1,4 +1,4 @@
-<!-- <h3>Shipping Info</h3>
+<h3>Shipping Info</h3>
 <form (ngSubmit)="onSubmit()">
     <div>
         <label for="Firstname"></label>
@@ -21,7 +21,7 @@
         <input type="text" placeholder="Phone Number" name="phonenumber" required [(ngModel)]="model.phoneNumber">
     </div>
     <div>
-        <button type="submit">Checkout</button>
+        <button (click)="btnClick" class="btn-primary">Checkout</button>  take from local storage with git request
     </div>
-    <h3></h3>
-</form> -->
+    <h3></h3> 
+</form>
