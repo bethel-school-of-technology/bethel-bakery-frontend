@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 <div class="container flex">
 <h3>Shipping Information</h3>
 <form (ngSubmit)="createNew()">
+=======
+<h3>Shipping Info</h3>
+<form (ngSubmit)="onSubmit()">
+>>>>>>> eaaa4d243ec73f36e87ddc28c80243e6c301e244
     <div>
         <label for="firstMame"></label>
         <input type="text" placeholder="First Name" name="firstName" required [(ngModel)]="newCustomer.firstName">
@@ -35,8 +40,13 @@
         <input type="text" placeholder="CVV code" name="cvvCode" required [(ngModel)]="newCustomer.cvvCode">
     </div>
     <div>
-        <button type="submit">Checkout</button>
+        <button (click)="btnClick" class="btn-primary">Checkout</button>  take from local storage with git request
     </div>
+<<<<<<< HEAD
     
 </form>
 </div>
+=======
+    <h3></h3> 
+</form>
+>>>>>>> eaaa4d243ec73f36e87ddc28c80243e6c301e244
