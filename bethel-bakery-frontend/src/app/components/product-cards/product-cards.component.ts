@@ -21,14 +21,15 @@ export class ProductCardsComponent implements OnInit {
     this.getProducts();
   }
 
-  addProductToCart = (productIndex: number) => {
-    this.getProducts();
-    console.log(this.products);
-    this.cartDataService.saveProduct(this.products[productIndex].productId).subscribe(
-      response => {
-        let num: number = this.cartDataService.getTotalInCart();
-      });
-  }
+  
+  // addProductToCart = (productIndex: number) => {
+  //   this.getProducts();
+  //   console.log(this.products);
+  //   this.cartDataService.saveProduct(this.products[productIndex].productId).subscribe(
+  //     response => {
+  //       let num: number = this.cartDataService.getTotalInCart();
+  //     });
+  // }
   
   getProducts = () => {
     this.productService.getProducts().subscribe(products => this.products = products);

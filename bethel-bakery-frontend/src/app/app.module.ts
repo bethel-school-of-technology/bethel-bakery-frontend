@@ -10,6 +10,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -29,6 +30,7 @@ import { CustomerDetailsComponent } from './components/customer-details/customer
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
 
   ],
   providers: [],

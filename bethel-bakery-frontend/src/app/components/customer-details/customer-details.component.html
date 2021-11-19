@@ -1,27 +1,42 @@
-<!-- <h3>Shipping Info</h3>
-<form (ngSubmit)="onSubmit()">
+<div class="container flex">
+<h3>Shipping Information</h3>
+<form (ngSubmit)="createNew()">
     <div>
-        <label for="Firstname"></label>
-        <input type="text" placeholder="First Name" name="Firstname" required [(ngModel)]="model.firstName">
+        <label for="firstMame"></label>
+        <input type="text" placeholder="First Name" name="firstName" required [(ngModel)]="newCustomer.firstName">
     </div>
     <div>
-        <label for="Lastname"></label>
-        <input type="text" placeholder="Last Name" name="Lastname" required [(ngModel)]="model.LastName">
+        <label for="lastName"></label>
+        <input type="text" placeholder="Last Name" name="lastName" required [(ngModel)]="newCustomer.lastName">
     </div>
     <div>
         <label for="address"></label>
-        <input type="text" placeholder="Address" name="address" required [(ngModel)]="model.address">
+        <input type="text" placeholder="Address" name="address" required [(ngModel)]="newCustomer.address">
     </div>
     <div>
         <label for="email"></label>
-        <input type="email" placeholder="Email" name="email" email required [(ngModel)]="model.email">
+        <input type="email" placeholder="Email" name="email" email required [(ngModel)]="newCustomer.email">
     </div>
     <div>
-        <label for="phonenumber">Subject: </label>
-        <input type="text" placeholder="Phone Number" name="phonenumber" required [(ngModel)]="model.phoneNumber">
+        <label for="phoneNumber"></label>
+        <input type="text" placeholder="Phone Number" name="phoneNumber" required [(ngModel)]="newCustomer.phoneNumber">
+    </div>
+    <h3>Payment Information</h3>
+        <div>
+        <label for="creditCardNumber"></label>
+        <input type="text" placeholder="Credit Card Number" name="creditCardNumber" required [(ngModel)]="newCustomer.creditCardNumber">
+    </div>
+        <div>
+        <label for="expirationDate"></label>
+        <input type="text" placeholder="Expiration Date (MM/YY)" name="expirationDate" required [(ngModel)]="newCustomer.expirationDate">
+    </div>
+        <div>
+        <label for="cvvCode"></label>
+        <input type="text" placeholder="CVV code" name="cvvCode" required [(ngModel)]="newCustomer.cvvCode">
     </div>
     <div>
         <button type="submit">Checkout</button>
     </div>
-    <h3></h3>
-</form> -->
+    
+</form>
+</div>

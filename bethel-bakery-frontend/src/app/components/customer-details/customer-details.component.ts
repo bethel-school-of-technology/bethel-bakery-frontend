@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Customer } from 'src/app/models/customer/customer';
+import { CartDataService } from 'src/app/services/cart-data/cart-data.service';
 
 @Component({
   selector: 'app-customer-details',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerDetailsComponent implements OnInit {
 
-  constructor() { }
+  newCustomer: Customer = new Customer();
+
+  constructor(private newCusomerService: CartDataService) { }
 
   ngOnInit(): void {
+  }
+
+  createNew(){
+    this.newCusomerService.newCustomer(this.newCustomer).subscribe(response =>{
+      console.log(response);
+    })
   }
 
 }

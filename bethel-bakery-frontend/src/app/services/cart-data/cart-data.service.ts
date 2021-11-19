@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CartItem } from 'src/app/models/cart-item/cart-item';
+import { Customer } from 'src/app/models/customer/customer';
 
 
 
@@ -18,30 +19,41 @@ export class CartDataService {
 
   addToCartUrl: string = "http://localhost:8080/cart/add"
   cartUrl: string = "http://localhost:8080/cart"
+  customerUrl: string = "http://localhost:8080/customer"
 
   cartItems: CartItem[] = [];
 
   constructor(private http: HttpClient) { }
 
-  saveProduct (productId: number): Observable<any> {
-    return this.http.post<any>(this.addToCartUrl + "/" + productId + "/1", productId, httpOptions);
+//POST: add a new customer to the database//
+  newCustomer(customer: Customer): Observable<Customer>{
+    return this.http.post<Customer>(this.customerUrl, customer, httpOptions);
+    console.log("firstName");
   }
+    
 
-  getCartItems ():Observable<CartItem[]> 
-  {
-    return this.http.get<CartItem[]>(this.cartUrl);
-  }
+  
 
-  getTotalInCart = () :number => 
-  {
-    this.getCartItems().subscribe(response => this.cartItems = response);
-    let totalQty:number = 0;
-    for(var i = 0; i < this.cartItems.length; i++) {
-      totalQty = totalQty + this.cartItems[i].productQuantity;
+
+  // saveProduct (productId: number): Observable<any> {
+  //   return this.http.post<any>(this.addToCartUrl + "/" + productId + "/1", productId, httpOptions);
+  // }
+
+  // getCartItems ():Observable<CartItem[]> 
+  // {
+  //   return this.http.get<CartItem[]>(this.cartUrl);
+  // }
+
+  // getTotalInCart = () :number => 
+  // {
+  //   this.getCartItems().subscribe(response => this.cartItems = response);
+  //   let totalQty:number = 0;
+  //   for(var i = 0; i < this.cartItems.length; i++) {
+  //     totalQty = totalQty + this.cartItems[i].productQuantity;
       
-    }
-    console.log(totalQty);
-    return totalQty;
-  } 
+  //   }
+  //   console.log(totalQty);
+  //   return totalQty;
+  // } 
 
 }

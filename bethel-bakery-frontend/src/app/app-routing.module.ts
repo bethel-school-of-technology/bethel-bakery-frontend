@@ -12,7 +12,7 @@ import { OrderHistoryComponent } from './components/order-history/order-history.
 const routes: Routes = [
   {
     path: 'cart',
-    component: CartDetailsComponent
+    component: CheckoutComponent
   },
   { path: 'login',
     component: LoginComponent
@@ -25,14 +25,6 @@ const routes: Routes = [
     path: 'order-history',
     component: OrderHistoryComponent
   },
-  {
-    path: 'checkout',
-    component: CartDetailsComponent,
-  },
-  // {
-  //   path: 'checkout',
-  //   component: CustomerDetailsComponent,
-  // }
 
 
 ];
