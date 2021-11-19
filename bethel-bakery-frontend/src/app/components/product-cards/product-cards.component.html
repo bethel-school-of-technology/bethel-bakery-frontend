@@ -4,7 +4,7 @@
             <script></script>
             <img src={{product.imgUrl}} alt="">
             <h3>{{product.name}}</h3>
-            <h3>{{product.price}}</h3>
+            <h3>{{product.price / 100 |currency}}</h3>
             <button (click)="addProductToCart(i)" class="btn-primary">Add to Cart</button>
         </div>
     </div>

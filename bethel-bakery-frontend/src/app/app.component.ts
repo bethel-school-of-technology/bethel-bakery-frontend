@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CartDataService } from './services/cart-data/cart-data.service';
-import { Money } from './money/money.service';
 
 @Component({
   selector: 'app-root',

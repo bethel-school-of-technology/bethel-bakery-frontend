@@ -13,6 +13,7 @@ import { CustomerDetailsComponent } from './components/customer-details/customer
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +23,7 @@ import { CustomerDetailsComponent } from './components/customer-details/customer
     CartDetailsComponent,
     LoginComponent,
     OrderHistoryComponent,
-    CustomerDetailsComponent
-    
-
+    CustomerDetailsComponent,
   ],
   imports: [
     BrowserModule,
