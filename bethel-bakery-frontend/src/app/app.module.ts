@@ -14,6 +14,7 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,9 +25,12 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
     LoginComponent,
     OrderHistoryComponent,
     CustomerDetailsComponent,
+<<<<<<< HEAD
     ConfirmationComponent
 
 
+=======
+>>>>>>> 8b1f51e13849df27d794cf2b295329f02cd8cdcd
   ],
   imports: [
     BrowserModule,

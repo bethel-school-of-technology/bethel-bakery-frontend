@@ -12,6 +12,7 @@ export class ProductCardsComponent implements OnInit {
 
   // Properties
   products: Product[] = [];
+  price: number = 0;
 
   // Constructor
   constructor(private productService: ProductDataService, private cartDataService: CartDataService) { }
