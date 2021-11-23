@@ -1,13 +1,8 @@
-<<<<<<< HEAD
 <div class="container flex">
 <h3>Shipping Information</h3>
-<form (ngSubmit)="createNew()">
-=======
-<h3>Shipping Info</h3>
-<form (ngSubmit)="onSubmit()">
->>>>>>> eaaa4d243ec73f36e87ddc28c80243e6c301e244
+<form id="customer-details" (ngSubmit)="createNew()">
     <div>
-        <label for="firstMame"></label>
+        <label for="firstName"></label>
         <input type="text" placeholder="First Name" name="firstName" required [(ngModel)]="newCustomer.firstName">
     </div>
     <div>
@@ -27,26 +22,21 @@
         <input type="text" placeholder="Phone Number" name="phoneNumber" required [(ngModel)]="newCustomer.phoneNumber">
     </div>
     <h3>Payment Information</h3>
-        <div>
-        <label for="creditCardNumber"></label>
-        <input type="text" placeholder="Credit Card Number" name="creditCardNumber" required [(ngModel)]="newCustomer.creditCardNumber">
-    </div>
-        <div>
-        <label for="expirationDate"></label>
-        <input type="text" placeholder="Expiration Date (MM/YY)" name="expirationDate" required [(ngModel)]="newCustomer.expirationDate">
-    </div>
-        <div>
-        <label for="cvvCode"></label>
-        <input type="text" placeholder="CVV code" name="cvvCode" required [(ngModel)]="newCustomer.cvvCode">
-    </div>
     <div>
-        <button (click)="btnClick" class="btn-primary">Checkout</button>  take from local storage with git request
-    </div>
-<<<<<<< HEAD
-    
-</form>
+    <label for="creditCardNumber"></label>
+    <input type="text" placeholder="Credit Card Number" name="creditCardNumber" required [(ngModel)]="newCustomer.creditCardNumber">
 </div>
-=======
-    <h3></h3> 
+    <div>
+    <label for="expirationDate"></label>
+    <input type="text" placeholder="Expiration Date (MM/YY)" name="expirationDate" required [(ngModel)]="newCustomer.expirationDate">
+</div>
+    <div>
+    <label for="cvvCode"></label>
+    <input type="text" placeholder="CVV code" name="cvvCode" required [(ngModel)]="newCustomer.cvvCode">
+</div>
+    <div>
+        <button (click)="btnClick" class="btn-primary">Checkout</button>  
+        <!-- take from local storage with get request -->
+        
+    </div>
 </form>
->>>>>>> eaaa4d243ec73f36e87ddc28c80243e6c301e244
