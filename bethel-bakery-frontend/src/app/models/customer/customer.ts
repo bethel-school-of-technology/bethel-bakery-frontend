@@ -8,5 +8,5 @@ export class Customer {
     creditCardNumber: string = "";
     expirationDate: string = "";
     cvvCode: string = "";
-
 }
+

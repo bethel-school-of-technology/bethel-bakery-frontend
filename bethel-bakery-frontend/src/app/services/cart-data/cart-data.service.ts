@@ -19,30 +19,24 @@ export class CartDataService {
 
   addToCartUrl: string = "http://localhost:8080/cart/add"
   cartUrl: string = "http://localhost:8080/cart"
-  customerUrl: string = "http://localhost:8080/customer"
 
   cartItems: CartItem[] = [];
 
   constructor(private http: HttpClient) { }
 
-//POST: add a new customer to the database//
-  newCustomer(customer: Customer): Observable<Customer>{
-    return this.http.post<Customer>(this.customerUrl, customer, httpOptions);
-    console.log("firstName");
+  saveProduct (productId: number): Observable<any> {
+    return this.http.post<any>(this.addToCartUrl + "/" + productId + "/1", productId, httpOptions);
   }
-    
 
-  
+  getCartItems ():Observable<CartItem[]> 
+  {
+    return this.http.get<CartItem[]>(this.cartUrl);
+  }
 
-
-  // saveProduct (productId: number): Observable<any> {
-  //   return this.http.post<any>(this.addToCartUrl + "/" + productId + "/1", productId, httpOptions);
-  // }
-
-  // getCartItems ():Observable<CartItem[]> 
-  // {
-  //   return this.http.get<CartItem[]>(this.cartUrl);
-  // }
+  createCustomer(newCustomer: Customer) : Observable<Customer>{
+    return this.http.post<Customer>(this.cartUrl, newCustomer)
+  }
+}
 
   // getTotalInCart = () :number => 
   // {
@@ -56,4 +50,3 @@ export class CartDataService {
   //   return totalQty;
   // } 
 
-}
