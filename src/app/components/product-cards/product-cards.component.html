@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="grid">
+        <div class="grid-item flex" *ngFor="let product of products; let i= index">
+            <script></script>
+            <img src={{product.imgUrl}} alt="">
+            <h3>{{product.name}}</h3>
+            <h3>{{product.price / 100 |currency}}</h3>
+            <button (click)="addProductToCart(i)" class="btn-primary">Add to Cart</button>
+        </div>
+    </div>
+</div>
+<!-- <button class="btn btn-success pull-right" ><a [routerLink]="[ '.', 'Service/Sign_in' ]"> Checkout</a></button> -->
