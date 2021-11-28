@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from './models/product/product';
 import { CartDataService } from './services/cart-data/cart-data.service';
 
 @Component({
@@ -9,5 +10,5 @@ import { CartDataService } from './services/cart-data/cart-data.service';
 export class AppComponent {
 
   constructor() {}
-  
+
 }

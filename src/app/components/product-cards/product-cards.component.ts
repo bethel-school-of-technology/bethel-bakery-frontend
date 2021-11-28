@@ -4,6 +4,7 @@ import { CartDataService } from 'src/app/services/cart-data/cart-data.service';
 import { ProductDataService } from 'src/app/services/product-data/product-data.service';
 import { CartItem } from 'src/app/models/cart-item/cart-item';
 
+
 @Component({
   selector: 'app-product-cards',
   templateUrl: './product-cards.component.html',
@@ -20,10 +21,11 @@ export class ProductCardsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
-
-
   }
 
+  AddItemToCart(productIndex: number):void {
+    this.cartDataService.addCartItemToLocalStorage(this.products[productIndex]);
+  }
   //localstorage?
 
 
@@ -31,7 +33,7 @@ export class ProductCardsComponent implements OnInit {
   addProductToCart = (productIndex: number) => {
     this.getProducts();
     console.log(this.products);
-    this.cartDataService.saveProduct(this.products[productIndex].productId).subscribe(
+    this.cartDataService.saveProduct(this.products[productIndex].id).subscribe(
       response => {
     
       });
