@@ -3,6 +3,7 @@ import { Product } from 'src/app/models/product/product';
 import { CartDataService } from 'src/app/services/cart-data/cart-data.service';
 import { ProductDataService } from 'src/app/services/product-data/product-data.service';
 import { CartItem } from 'src/app/models/cart-item/cart-item';
+import { CartDetailsComponent } from '../cart-details/cart-details.component';
 
 @Component({
   selector: 'app-product-cards',
@@ -24,7 +25,12 @@ export class ProductCardsComponent implements OnInit {
 
   }
 
-  //localstorage?
+//local storage//
+
+// cartStorage = window.localStorage;
+  
+// localStorage.setItem("productID", JSON.stringify());
+
 
 
   
