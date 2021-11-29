@@ -25,14 +25,6 @@ export class ProductCardsComponent implements OnInit {
 
   }
 
-//local storage//
-
-// cartStorage = window.localStorage;
-  
-// localStorage.setItem("productID", JSON.stringify());
-
-
-
   
   addProductToCart = (productIndex: number) => {
     this.getProducts();

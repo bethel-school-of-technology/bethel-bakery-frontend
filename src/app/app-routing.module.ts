@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { OrderDetailsComponent } from './components/order-details/order-details.component';
 
 
 
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'order-history',
     component: OrderHistoryComponent
+  },
+  {
+    path: 'order-details',
+    component: OrderDetailsComponent
   }
 
     // ConfirmationComponent --> checkout
@@ -36,6 +41,8 @@ const routes: Routes = [
   //   path: 'confirmation',
   //   component: ConfirmationComponent
   // }
+
+
 ];
 
 @NgModule({
