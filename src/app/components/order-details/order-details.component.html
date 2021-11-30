@@ -1,1 +1,71 @@
 <p>order-details works!</p>
+<!-- for test only -->
+<!-- <div class ="grid">
+    <h3>Shipping Information</h3>
+    <ul>
+        <li>firstname</li>
+        <li>lastName</li>
+        <li>address</li>
+        <li>email</li>
+        <li>phoneNumber</li>
+    </ul>
+</div>
+<br>
+<div class="grid">
+<h3>Order Details</h3>
+<table>
+  <tr>
+    <th>Product</th>
+    <th>Price</th>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td>price</td>
+  </tr>
+  <tr>
+      <th>Subtotal</th>
+      <th>Total</th>
+  </tr>
+  <tr>
+      <td>$subtotal</td>
+      <td>$total</td>
+  </tr>
+</table>
+</div> -->
+<!-- for test only -->
+
+
+
+<div class="container" *ngFor="let order of orders">
+    <div class ="grid">
+        <h3>Shipping Information</h3>
+        <ul>
+            <li>{{order.firstname}}</li>
+            <li>{{order.lastname}}</li>
+            <li>{{order.address}}</li>
+            <li>{{order.email}}</li>
+            <li>{{order.phoneNumber}}</li>
+        </ul>
+    </div>
+    <div class="grid">
+    <h3>Order Details</h3>
+    <table>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+      </tr>
+      <tr>
+        <td>{{order.name}}</td>
+        <td>{{order.price}}</td>
+      </tr>
+      <tr>
+        <th>Subtotal</th>
+        <th>Total</th>
+    </tr>
+    <tr>
+        <td>{{order.subtotal}}</td>
+        <td>{{order.total}}</td>
+    </tr>
+    </table>
+    </div>
+    </div>
