@@ -16,12 +16,14 @@ export class OrderDataService {
 
       //check backend URL//
   orderHistoryUrl: string = "http://localhost:8080/order-history"
-  cartUrl: string = "http://localhost:8080/cart"
+  checkoutUrl: string = "http://localhost:8080/checkout"
+
+  
 
   constructor(private http: HttpClient) {}
 
-  createOrder(orderId: any) : Observable<any>{
-    return this.http.post<any>(this.cartUrl, httpOptions)
+  createOrder(newOrder: Order) : Observable<Order>{
+    return this.http.post<Order>(this.checkoutUrl, newOrder)
   }
 
   //Methods

@@ -20,8 +20,9 @@ export class CustomerDetailsComponent implements OnInit {
   }
 
   createNew(){
-    this.newOrder.createOrder(this.newOrder).subscribe(response =>{
-      console.log(response);
+    this.newOrder.createOrder(this.order).subscribe(response =>{
+      console.log(response); (this.router);
+      this.router.navigate(["confimation"])
     })
   }
 

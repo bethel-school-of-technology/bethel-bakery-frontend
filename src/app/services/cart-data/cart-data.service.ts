@@ -25,9 +25,9 @@ export class CartDataService {
 
   constructor(private http: HttpClient) { }
 
-  // saveProduct (productId: number): Observable<any> {
-  //   return this.http.post<any>(this.addToCartUrl + "/" + productId + "/1", productId, httpOptions);
-  // }
+  saveProduct (productId: number): Observable<any> {
+    return this.http.post<any>(this.addToCartUrl + "/" + productId + "/1", productId, httpOptions);
+  }
 
   getCartItems ():Observable<CartItem[]> 
   {

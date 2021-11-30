@@ -7,8 +7,6 @@ export class Order {
         throw new Error('Method not implemented.');
       }
     orderId: number = 0;
-    cartItems: CartItem[] = [];
-    customer: Customer = new Customer; 
     firstName: string = "";
     lastName: string = "";
     address: string = "";
@@ -20,5 +18,7 @@ export class Order {
     subTotal: number = 0 ;
     total: number = 0 ;
     dateTimeStamp: Date ; 
+    cartItems: CartItem[] = [];
+    customer: Customer = new Customer; 
    static orderInfo: any;
 }
