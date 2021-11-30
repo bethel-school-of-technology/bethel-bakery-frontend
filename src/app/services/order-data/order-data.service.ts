@@ -16,8 +16,13 @@ export class OrderDataService {
 
       //check backend URL//
   orderHistoryUrl: string = "http://localhost:8080/order-history"
+  cartUrl: string = "http://localhost:8080/cart"
 
   constructor(private http: HttpClient) {}
+
+  createOrder(orderId: any) : Observable<any>{
+    return this.http.post<any>(this.cartUrl, httpOptions)
+  }
 
   //Methods
   getOrders ():Observable<Order[]>

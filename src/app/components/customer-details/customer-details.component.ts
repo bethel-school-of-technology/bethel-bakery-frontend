@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Customer } from 'src/app/models/customer/customer';
-import { CartDataService } from 'src/app/services/cart-data/cart-data.service';
+import { Order } from 'src/app/models/order/order';
+import { OrderDataService } from 'src/app/services/order-data/order-data.service';
 
 @Component({
   selector: 'app-customer-details',
@@ -10,25 +10,21 @@ import { CartDataService } from 'src/app/services/cart-data/cart-data.service';
 })
 export class CustomerDetailsComponent implements OnInit {
 
-  newCustomer: Customer = new Customer();
+  order: Order = new Order();
 
 
-  constructor(private router: Router, private newCustomerInfo: CartDataService) {}
+  constructor(private router: Router, private newOrder: OrderDataService) {}
 
 
   ngOnInit(): void {
   }
 
-  // let firstName;
-
-  // firstName=document.getElementById("firstName").value;
-
-  // localStorage.setItem("firstName", firstName)
   createNew(){
-    this.newCustomerInfo.createCustomer(this.newCustomer).subscribe(response =>{
+    this.newOrder.createOrder(this.newOrder).subscribe(response =>{
       console.log(response);
     })
   }
+
 
   btnClick =  () => {
     this.router.navigateByUrl('/confirmation.component.html');

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CartItem } from 'src/app/models/cart-item/cart-item';
 import { Customer } from 'src/app/models/customer/customer';
+import { Order } from 'src/app/models/order/order';
 
 
 
@@ -24,29 +25,16 @@ export class CartDataService {
 
   constructor(private http: HttpClient) { }
 
-  saveProduct (productId: number): Observable<any> {
-    return this.http.post<any>(this.addToCartUrl + "/" + productId + "/1", productId, httpOptions);
-  }
+  // saveProduct (productId: number): Observable<any> {
+  //   return this.http.post<any>(this.addToCartUrl + "/" + productId + "/1", productId, httpOptions);
+  // }
 
   getCartItems ():Observable<CartItem[]> 
   {
     return this.http.get<CartItem[]>(this.cartUrl);
   }
 
-  createCustomer(newCustomer: Customer) : Observable<Customer>{
-    return this.http.post<Customer>(this.cartUrl, newCustomer)
-  }
+
 }
 
-  // getTotalInCart = () :number => 
-  // {
-  //   this.getCartItems().subscribe(response => this.cartItems = response);
-  //   let totalQty:number = 0;
-  //   for(var i = 0; i < this.cartItems.length; i++) {
-  //     totalQty = totalQty + this.cartItems[i].productQuantity;
-      
-  //   }
-  //   console.log(totalQty);
-  //   return totalQty;
-  // } 
 

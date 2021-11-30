@@ -27,12 +27,12 @@
     <input type="text" placeholder="Credit Card Number" name="creditCardNumber" required [(ngModel)]="newCustomer.creditCardNumber">
 </div>
     <div>
-    <label for="expirationDate"></label>
-    <input type="text" placeholder="Expiration Date (MM/YY)" name="expirationDate" required [(ngModel)]="newCustomer.expirationDate">
+    <label for="expiration"></label>
+    <input type="text" placeholder="Expiration Date (MM/YY)" name="expiration" required [(ngModel)]="newCustomer.expiration">
 </div>
     <div>
-    <label for="cvvCode"></label>
-    <input type="text" placeholder="CVV code" name="cvvCode" required [(ngModel)]="newCustomer.cvvCode">
+    <label for="ccv"></label>
+    <input type="text" placeholder="CCV" name="ccv" required [(ngModel)]="newCustomer.ccv">
 </div>
     <div>
         <button (click)="btnClick" class="btn-primary">Checkout</button>  

@@ -1,4 +1,17 @@
 <p>order-history works!</p>
+<!-- <div class="container">
+    <div class="grid">
+        <div class="grid-item flex">
+            <ul>
+                <!-- can you have two items in one list item? -->
+            <li>"firstName", " ", "lastname"</li>
+            <li>12/01/2021</li>
+            <li><a routerLink="/order-details">View</a></li>
+            </ul>
+        </div>
+    </div>
+</div> -->
+
 <!-- used to make sure routing worked -->
 <!-- <p><a routerLink="/order-details">View</a></p> -->
 <div class="container">
@@ -6,7 +19,7 @@
         <div class="grid-item flex" *ngFor="let order of orders">
             <ul>
                 <!-- can you have two items in one list item? -->
-            <li>{{order.firstName}}, {{order.lastName}}</li>
+            <li>{{order.firstName}}, " ", {{order.lastName}}</li>
             <li>{{order.date}}</li>
             <li><a routerLink="/order-details">View</a></li>
             </ul>
