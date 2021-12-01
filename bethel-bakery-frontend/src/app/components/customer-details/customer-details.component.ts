@@ -27,22 +27,33 @@ export class CustomerDetailsComponent implements OnInit {
   expiration: string = '';
 
 
-  constructor(private router: Router, private newCustomerInfo: CartDataService) {}
+  constructor(private router: Router, private newCustomerInfo: CartDataService, private http: HttpClient) { }
 
 
   ngOnInit(): void {
   }
-
-  createNew(){
-    this.newCustomerInfo.createCustomer(this.newCustomer).subscribe(response =>{
-      console.log(response);
-    });
-  }
   getItems(product: Product): void {
-    if (localStorage.getItem('cartItems') != null){
+   
+    let url = '';
+  //  where will we be posting the data?
+    if (localStorage.getItem('cartItems') != null) {
       this.newcartItem = JSON.parse(localStorage.getItem('cartItems'));
+      this.http.post(url,{ firstName:this.fristName , lastName: this.lastName, address:this.address, email:this.email, phoneNumber:this.phoneNumber, creditCardNumber:this.creditCardNumber, expiration:this.expiration
+     }).toPromise().then((data: any) =>{
+      //  where does data post(url for backend)?
+       console.log(data.firstName.lastName.address.email.phoneNumber.email.creditCardNumber.expiration);
+     })
     }
+    // will simplify when order model is merged.
   }
+  
+}
 
-  }
+  
+// comment out post method and type declerations until order model is merged. remember to import new model. 
 
+// createNew(){
+    //   this.newCustomerInfo.createCustomer(this.newCustomer).subscribe(response =>{
+    //     console.log(response);
+    //   });
+// transfered this to Login.ts to be used from the Customer model as a new customre profile 
