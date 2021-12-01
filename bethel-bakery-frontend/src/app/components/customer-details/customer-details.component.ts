@@ -6,7 +6,8 @@ import { Customer } from 'src/app/models/customer/customer';
 import { CartDataService } from 'src/app/services/cart-data/cart-data.service';
 import { CartDetailsComponent } from '../cart-details/cart-details.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { Product } from 'src/app/models/product/product';
+import { CartItem } from 'src/app/models/cart-item/cart-item';
 @Component({
   selector: 'app-customer-details',
   templateUrl: './customer-details.component.html',
@@ -15,31 +16,33 @@ import { HttpClientModule } from '@angular/common/http';
 export class CustomerDetailsComponent implements OnInit {
 
   newCustomer: Customer = new Customer();
-  // newDetail: Detail = new Detail();
-  // private _url: string = '';
+  newcartItem: CartItem[] = [];
 
-  constructor(private router: Router, private newCustomerInfo: CartDataService, private http: HttpClient) { }
+  fristName: string = '';
+  lastName: string = '';
+  address: string = '';
+  email: string = '';
+  phoneNumber: number = 0;
+  creditCardNumber: number = 0;
+  expiration: string = '';
+
+
+  constructor(private router: Router, private newCustomerInfo: CartDataService) {}
 
 
   ngOnInit(): void {
-    // this.getInfo();
   }
 
-  createNew() {
-    this.newCustomerInfo.createCustomer(this.newCustomer).subscribe(response => {
+  createNew(){
+    this.newCustomerInfo.createCustomer(this.newCustomer).subscribe(response =>{
       console.log(response);
     });
-    // tslint:disable-next-line: typedef
-    // getInfo = () => {
-    //   this.httpClient.get();
-    // };
-
+  }
+  getItems(product: Product): void {
+    if (localStorage.getItem('cartItems') != null){
+      this.newcartItem = JSON.parse(localStorage.getItem('cartItems'));
+    }
   }
 
-
-  //  return this.router.navigateByUrl('/confirmation.component.html');
-
-
-}
-
+  }
 

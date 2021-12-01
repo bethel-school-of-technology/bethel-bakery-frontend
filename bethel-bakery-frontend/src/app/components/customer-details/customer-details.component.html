@@ -28,14 +28,14 @@
 </div>
     <div>
     <label for="expirationDate"></label>
-    <input type="text" placeholder="Expiration Date (MM/YY)" name="expirationDate" required [(ngModel)]="newCustomer.expirationDate">
+    <input type="text" placeholder="Expiration Date (MM/YY)" name="expirationDate" required [(ngModel)]="newCustomer.expiration">
 </div>
     <div>
     <label for="cvvCode"></label>
-    <input type="text" placeholder="CVV code" name="cvvCode" required [(ngModel)]="newCustomer.cvvCode">
+    <input type="text" placeholder="CCV code" name="ccvCode" required [(ngModel)]="newCustomer.ccvCode">
 </div>
     <div>
-        <button (click)="btnClick" class="btn-primary">Checkout</button>  
+        <button (click)="getItems" class="btn-primary">Checkout</button>  
         <!-- take from local storage with get request -->
         
     </div>
