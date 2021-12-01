@@ -6,7 +6,7 @@ export class Order {
     static order(order: any): string {
         throw new Error('Method not implemented.');
       }
-    orderId: number = 0;
+    id: number = 0;
     firstName: string = "";
     lastName: string = "";
     address: string = "";

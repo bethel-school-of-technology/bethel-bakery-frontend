@@ -31,4 +31,8 @@ export class OrderDataService {
   {
     return this.http.get<Order[]>(this.orderHistoryUrl);
   }
+
+  getOneOrder(id: number):Observable<Order>{
+    return this.http.get<Order>(`${this.orderHistoryUrl}/${id}`)
+  }
 }

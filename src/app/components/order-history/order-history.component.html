@@ -1,50 +1,36 @@
-<p>order-history works!</p>
-
-<!-- for test only -->
-<!-- <div class="container">
-    <table>
+<!-- *** ONLY USED FOR TESTING***
+<div class="container">
+    <table >
       <tr>
         <th>Customer Name</th>
         <th>Order Date</th>
+        <th></th>
       </tr>
       <tr>
-        <td>Chelsea Clark</td>
-        <td>11/29/2021</td>
+        <td>FirstName LastName</td>
+        <td>12/01/2021</td>
         <td><a routerLink="/order-details">View</a></td>
       </tr>
       <tr>
-        <td>Rickey M</td>
-        <td>11/28/2021</td>
-        <td><a routerLink="/order-details">View</a></td>
-      </tr>
-      <tr>
-        <td>Tyler Estes</td>
-        <td>11/28/2021</td>
-        <td><a routerLink="/order-details">View</a></td>
-      </tr>
-      <tr>
-        <td>Brian DeWitt</td>
-        <td>11/27/2021</td>
+        <td>First Last</td>
+        <td>11/30/2021</td>
         <td><a routerLink="/order-details">View</a></td>
       </tr>
     </table>
     </div> -->
-<!-- for test only -->
 
-
-
-
-<div class="container" *ngFor="let order of orders">
-<table>
-  <tr>
-    <th>Customer Name</th>
-    <th>Order Date</th>
-  </tr>
-  <tr>
-    <td>{{order.firstname}} {{order.lastName}}</td>
-    <td>{{order.date}}</td>
-    <td><a routerLink="/order-details">View</a></td>
-  </tr>
-</table>
-</div>
+<div class="container">
+    <table *ngFor="let order of orders; let i=index">
+      <tr>
+        <th>Customer Name</th>
+        <th>Order Date</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>{{order.firstname}} {{order.lastName}}</td>
+        <td>{{order.date}}</td>
+        <td><a routerLink="/order-details/{{order.id}}">View</a></td>
+      </tr>
+    </table>
+    </div>
 

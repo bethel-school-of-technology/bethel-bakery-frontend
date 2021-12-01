@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Order } from 'src/app/models/order/order';
 import { OrderDataService } from 'src/app/services/order-data/order-data.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -11,16 +13,23 @@ import { OrderDataService } from 'src/app/services/order-data/order-data.service
 export class OrderDetailsComponent implements OnInit {
 
   //Property
-  orders: Order[] = [];
+  oneOrder: any;
+  id : any;
   
-  constructor(private orderService: OrderDataService) { }
+  constructor(private orderService: OrderDataService, private location: Location, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getOrders();
+    this.getOneOrder();
   }
 
-  getOrders = () => {
-    this.orderService.getOrders().subscribe(orders => this.orders = orders);
+  
+  getOneOrder (): void {
+    this.oneOrder = (this.route.snapshot.paramMap.get(this.id));
+    this.orderService.getOneOrder(this.id).subscribe(order => this.oneOrder = order);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

@@ -1,43 +1,41 @@
-<p>order-details works!</p>
-<!-- for test only -->
-<!-- <div class ="grid">
-    <h3>Shipping Information</h3>
-    <ul>
-        <li>firstname</li>
-        <li>lastName</li>
-        <li>address</li>
-        <li>email</li>
-        <li>phoneNumber</li>
-    </ul>
-</div>
-<br>
-<div class="grid">
-<h3>Order Details</h3>
-<table>
-  <tr>
-    <th>Product</th>
-    <th>Price</th>
-  </tr>
-  <tr>
-    <td>name</td>
-    <td>price</td>
-  </tr>
-  <tr>
-      <th>Subtotal</th>
-      <th>Total</th>
-  </tr>
-  <tr>
-      <td>$subtotal</td>
-      <td>$total</td>
-  </tr>
-</table>
-</div> -->
-<!-- for test only -->
+<!-- ***ONLY USED FOR TESTING***
+<div class="container flex" >
+<div>
+        <h3>Shipping Information</h3>
+        <ul>
+            <li>First Name</li>
+            <li>Last Name</li>
+            <li>5454 Acorn Ave Littleford, GA 45971</li>
+            <li>email@gmail.com</li>
+            <li>217-555-6568</li>
+        </ul>
+    </div>
+    <div>
+    <h3>Order Details</h3>
+    <table>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+      </tr>
+      <tr>
+        <td>Bagel</td>
+        <td>$4.90</td>
+      </tr>
+      <tr>
+        <th>Subtotal</th>
+        <th>Total</th>
+    </tr>
+    <tr>
+        <td>$24.50</td>
+        <td>$6.22</td>
+    </tr>
+    </table>
+    </div>
+    </div>
+<div><button (click)="goBack()">go back</button></div> -->
 
-
-
-<div class="container" *ngFor="let order of orders">
-    <div class ="grid">
+<div class="container flex" >
+    <div *ngIf="oneOrder">
         <h3>Shipping Information</h3>
         <ul>
             <li>{{order.firstname}}</li>
@@ -46,8 +44,8 @@
             <li>{{order.email}}</li>
             <li>{{order.phoneNumber}}</li>
         </ul>
-    </div>
-    <div class="grid">
+        </div>
+        <div>
     <h3>Order Details</h3>
     <table>
       <tr>
@@ -69,3 +67,5 @@
     </table>
     </div>
     </div>
+    <div><button (click)="goBack()">go back</button></div>
+    
