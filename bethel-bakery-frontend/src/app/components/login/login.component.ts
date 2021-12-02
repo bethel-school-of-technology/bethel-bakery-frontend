@@ -26,11 +26,12 @@ export class LoginComponent implements OnInit {
     this.newCustomerInfo.createCustomer(this.newCustomer).subscribe(response => {
       console.log(response);
     });
- 
+  getUser(){
+    
   }
-  Customer(id: number, userName: string, password: string, isAdmin: boolean, cartItems: CartItem , orders: CartItem) {
-      
+//  getUser() = click event to get user from Db
   }
+  
 
 }
 

@@ -15,16 +15,24 @@ import { CartItem } from 'src/app/models/cart-item/cart-item';
 })
 export class CustomerDetailsComponent implements OnInit {
 
-  newCustomer: Customer = new Customer();
-  newcartItem: CartItem[] = [];
+  newOrder: Order = new Order();
+  
 
-  fristName: string = '';
-  lastName: string = '';
-  address: string = '';
-  email: string = '';
-  phoneNumber: number = 0;
-  creditCardNumber: number = 0;
-  expiration: string = '';
+  id: number = 0;
+  firstName: string = "";
+  lastName: string = "";
+  address: string = "";
+  email: string = "";
+  phoneNumber: string = "";
+  creditCardNumber: string = "";
+  expiration: string = "";
+  ccv: string = "";
+  subTotal: number = 0 ;
+  total: number = 0 ;
+  dateTimeStamp: Date ; 
+  cartItems: CartItem[] = [];
+  customer: Customer = new Customer; 
+ static orderInfo: any;
 
 
   constructor(private router: Router, private newCustomerInfo: CartDataService, private http: HttpClient) { }
@@ -35,13 +43,12 @@ export class CustomerDetailsComponent implements OnInit {
   getItems(product: Product): void {
    
     let url = '';
-  //  where will we be posting the data?
+  //  what is the URL for posting data to the Db?
     if (localStorage.getItem('cartItems') != null) {
-      this.newcartItem = JSON.parse(localStorage.getItem('cartItems'));
-      this.http.post(url,{ firstName:this.fristName , lastName: this.lastName, address:this.address, email:this.email, phoneNumber:this.phoneNumber, creditCardNumber:this.creditCardNumber, expiration:this.expiration
-     }).toPromise().then((data: any) =>{
+      this.cartItems = JSON.parse(localStorage.getItem('cartItems'));
+      this.http.post(url,{ Order }).toPromise().then((data: any) =>{
       //  where does data post(url for backend)?
-       console.log(data.firstName.lastName.address.email.phoneNumber.email.creditCardNumber.expiration);
+       console.log(data.Order);
      })
     }
     // will simplify when order model is merged.
