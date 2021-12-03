@@ -35,7 +35,7 @@
     <input type="text" placeholder="CCV code" name="ccvCode" required [(ngModel)]="newCustomer.ccvCode">
 </div>
     <div>
-        <button (click)="getItems" class="btn-primary">Checkout</button>  
+        <button (click)="getItems" class="btn-primary"><a routerLink="/confirmation">Checkout</a></button>  
         <!-- take from local storage with get request -->
         
     </div>
