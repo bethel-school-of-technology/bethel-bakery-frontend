@@ -18,6 +18,7 @@ newCartItemOne: CartItem = new CartItem();
   ngOnInit(): void {
     this.getCartItem(this.newCartItemOne);
     document.getElementById("cartDetailsName").innerHTML = this.newCartItemOne.product.name;
+    document.getElementById("cartDetailsPrice").innerHTML = this.newCartItemOne.product.price.toString();
   }
 
   //Set key to the actual key in order for this to !null. newCartItemOne should now have JSON properties.
