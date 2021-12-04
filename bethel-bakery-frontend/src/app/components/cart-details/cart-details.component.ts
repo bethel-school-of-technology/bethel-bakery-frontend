@@ -17,7 +17,7 @@ newCartItemOne: CartItem = new CartItem();
   //This function should be working if the database is running and the "key" is updated. It will generate null otherwise.
   ngOnInit(): void {
     this.getCartItem(this.newCartItemOne);
-    document.getElementById("cartDetails").innerHTML = this.newCartItemOne.product.name;
+    document.getElementById("cartDetailsName").innerHTML = this.newCartItemOne.product.name;
   }
 
   //Set key to the actual key in order for this to !null. newCartItemOne should now have JSON properties.
