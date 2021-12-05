@@ -14,15 +14,17 @@ export class OrderHistoryComponent implements OnInit {
 
   //Property
   orders: Order[] = [];
+  order: Order = new Order();
   
   constructor(private orderService: OrderDataService) { }
 
   ngOnInit(): void {
     this.getOrders();
-
-    // this.orders.push(new order[])
+   
 
   }
+
+ 
 
   getOrders = () => {
     this.orderService.getOrders().subscribe(orders => this.orders = orders);

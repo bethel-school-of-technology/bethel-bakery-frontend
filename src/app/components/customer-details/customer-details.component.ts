@@ -25,7 +25,7 @@ export class CustomerDetailsComponent implements OnInit {
       this.router.navigate(["confimation"])
     })
   }
-  btnClick =  () => {
+  getItems =  () => {
     this.router.navigateByUrl('/confirmation.component.html');
   
   }}
