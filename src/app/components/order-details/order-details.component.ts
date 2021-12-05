@@ -13,20 +13,28 @@ import { ActivatedRoute } from '@angular/router';
 export class OrderDetailsComponent implements OnInit {
 
   //Property
-  oneOrder: any;
-  id : any;
   
-  constructor(private orderService: OrderDataService, private location: Location, private route: ActivatedRoute) { }
+  id : any;
+  oneOrder: Order = new Order();
+
+  
+  constructor(
+    private orderService: OrderDataService,
+    private location: Location,
+    private route: ActivatedRoute,
+    public order: Order,
+
+    ) { }
 
   ngOnInit(): void {
-    this.getOneOrder();
+    // this.getOneOrder();
   }
 
   
-  getOneOrder (): void {
-    this.oneOrder = (this.route.snapshot.paramMap.get(this.id));
-    this.orderService.getOneOrder(this.id).subscribe(order => this.oneOrder = order);
-  }
+  // getOneOrder (): void {
+  //   this.id = (this.route.snapshot.paramMap.get(this.id));
+  //   this.orderService.getOrders(this.id).subscribe(order => this.oneOrder = order);
+  // }
 
   goBack(): void {
     this.location.back();

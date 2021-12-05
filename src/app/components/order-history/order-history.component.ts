@@ -19,6 +19,9 @@ export class OrderHistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOrders();
+
+    // this.orders.push(new order[])
+
   }
 
   getOrders = () => {

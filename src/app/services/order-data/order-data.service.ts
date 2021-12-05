@@ -16,11 +16,13 @@ export class OrderDataService {
 
       //check backend URL//
   orderHistoryUrl: string = "http://localhost:8080/order-history"
+
   checkoutUrl: string = "http://localhost:8080/checkout"
 
   
 
   constructor(private http: HttpClient) {}
+
 
   createOrder(newOrder: Order) : Observable<Order>{
     return this.http.post<Order>(this.checkoutUrl, newOrder)
@@ -30,9 +32,5 @@ export class OrderDataService {
   getOrders ():Observable<Order[]>
   {
     return this.http.get<Order[]>(this.orderHistoryUrl);
-  }
-
-  getOneOrder(id: number):Observable<Order>{
-    return this.http.get<Order>(`${this.orderHistoryUrl}/${id}`)
   }
 }
