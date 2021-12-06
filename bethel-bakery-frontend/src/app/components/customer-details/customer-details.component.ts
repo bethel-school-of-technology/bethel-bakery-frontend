@@ -1,14 +1,14 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { url } from 'inspector';
-import { Customer } from 'src/app/models/customer/customer';
-import { CartDataService } from 'src/app/services/cart-data/cart-data.service';
 import { CartDetailsComponent } from '../cart-details/cart-details.component';
-import { HttpClientModule } from '@angular/common/http';
-import { Product } from 'src/app/models/product/product';
-import { CartItem } from 'src/app/models/cart-item/cart-item';
-import { OrderDetailsService } from 'src/app/services/order-details.service';
+import { Order } from '../../models/order/order';
+import { CartDataService } from '../../services/cart-data/cart-data.service';
+import { OrderDetailsService } from '../../services/order-details.service';
+import { Product } from '../../models/product/product';
+import { CartItem } from '../../models/cart-item/cart-item';
+import { Customer } from '../../models/customer/customer';
+
 @Component({
   selector: 'app-customer-details',
   templateUrl: './customer-details.component.html',
@@ -30,7 +30,7 @@ export class CustomerDetailsComponent implements OnInit {
   ccv: string = "";
   subTotal: number = 0 ;
   total: number = 0 ;
-  dateTimeStamp: Date ; 
+  dateTimeStamp: number = 0; 
   cartItems: CartItem[] = [];
   customer: Customer = new Customer; 
  static orderInfo: any;
@@ -49,12 +49,22 @@ export class CustomerDetailsComponent implements OnInit {
       this.cartItems = JSON.parse(localStorage.getItem('cartItems'));
      }
     }
-   addOrder = (order:Order) => {
-     this.orderDetailsService.newOrder(Order).subscribe(response => {
-        // adding to the Db
-     } )
+    addOrder(){
+      this.orderDetailsService.newOrder(this.newOrder).subscribe(order =>{
+        console.log(order);
+
+      })
+
+    }
+  //  addOrder = (order:Order) => {
+  //    this.orderDetailsService.newOrder(Order).subscribe(response => {
+      
+  //     this
+
+  //       // adding to the Db
+  //    } )
    }
-  }
+  
   
 
 
