@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/models/cart-item/cart-item';
+import { Product } from 'src/app/models/product/product';
 
 @Component({
   selector: 'app-cart-details',
@@ -8,45 +9,61 @@ import { CartItem } from 'src/app/models/cart-item/cart-item';
 })
 export class CartDetailsComponent implements OnInit {
 
-newCartItemOne: CartItem = new CartItem();
+  items: CartItem[] = [];
+  newCartItemOne = new CartItem();
+  newCartItemTwo = new CartItem();
 //I am working on an array complete with if statement and loop to check contents of local storage and load all objects. Due to the way localstorage works with keys...
 //It appears that all keys will need to be saved into variables, and stored into an array, and then I can run a loop on the array to load the whole cart.
-keyArray:string[] = [];
-x = "";
- 
 
-  
-  constructor() { }
-//Working on a loop to provide the key values for the local storage...
-  //Getting an error about using type keyArray as an injectable...will continue working on it.
+//keyArray:string[] = ["item1","item2","item3","item4","item5","item6","item7","item8","item9","item10"]; //TL:DR This code is for debugging and will not be used.
+//itemCheck = this.keyArray.filter(keyArray => this.keyArray);
 
-   /*constructor(keyArray: { value: any; index: number; }, x: any) {
-    while (keyArray != null){
-      x = keyArray.value;
-      keyArray.index ++;
-      return x;
-    }
-    if (keyArray = null){
+//For adding the next line of item(s).
+//newItemNameDiv = document.getElementById("cartDetailsContainer").appendChild(document.createElement('div')); //DOM code...Do not use!
+//newItemPriceDiv = document.getElementById("cartDetailsContainer").appendChild(document.createElement('div'));
+
+//Constructor is used to build items into storage for later retreaval. You will want to comment this out this storage function, or inject your own object.
+//If injecting your own object, you can leave the rest of the code the same.                                      
+  constructor() {
+    localStorage.setItem("item1",JSON.stringify(this.newCartItemOne) )
+        //For testing...can use to proof the array works and local storage works.
+    // localStorage.setItem("item1",JSON.stringify(this.newCartItemTwo) ) 
+        //Putting two items in with the same key, producing two items, meaning item1 is correctly builing array.
+    
+    
+    //For Debugging
+    //console.log(this.itemCheck);
+    /*if (this.keyArray = null){
       console.log("keyArray: Empty");
     }
-   }*/
+  */
+ }
   
 
   //This function should be working if the database is running and the "key" is updated. It will generate null otherwise.
   ngOnInit(): void {
     this.getCartItem(this.newCartItemOne);
-    document.getElementById("cartDetailsName").innerHTML = this.newCartItemOne.product.name;
-    document.getElementById("cartDetailsPrice").innerHTML = this.newCartItemOne.product.price.toString();
+    this.getCartItem(this.newCartItemTwo);
+    //This code is used for the DOM and is not currently implemented.
+    //document.getElementById("cartDetailsName").innerHTML = this.newCartItemOne.product.name;
+    //document.getElementById("cartDetailsPrice").innerHTML = this.newCartItemOne.product.price.toString();
+    console.log(this.newCartItemOne);
+    console.log(this.newCartItemTwo);
+    this.items.push(this.newCartItemOne,this.newCartItemTwo); //"Items" object is currently empty, and you can see two blank "new CartItems" are created and pushed into it
+    //^^ This code ^^  must be changed if you are using new objects. If you read the constructor comment, and changed that, instead, you can leave this.
+    //The correct items will show and the extra item will return null and should be okay.
+    console.log(this.items);
   }
 
   //Set key to the actual key in order for this to !null. newCartItemOne should now have JSON properties.
   getCartItem(newCartItemOne): CartItem {
-    this.newCartItemOne = JSON.parse(localStorage.getItem(this.keyArray.values.toString())); //Really not sure about this, might revert to keyArray index, or otherwise.
-    return newCartItemOne;
+    this.newCartItemOne = JSON.parse(localStorage.getItem("item1")); //This is working to correctly bring whatever varaiable/array/object is pushed into "items" object.
+    return newCartItemOne;                                            
   }
 
 
-/*deleteCartItemClick(newCartItemOne): CartItem {
+//Workimg on delete button still
+  /*deleteCartItemClick(newCartItemOne): CartItem {
 document.getElementById("deleteCartItemOne").onclick(deleteCartItemFromLocalStorage())
 }
 deleteCartItemFromLocalStorage(){

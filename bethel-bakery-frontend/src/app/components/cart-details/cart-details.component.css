@@ -1,8 +1,20 @@
+aside {
+    display: flex;
+    align-content: flex-start;
+}
+p {
+    display: flex;
+    justify-content: right;
+    font-size: 3ch;
+}
+ul {
+    font-size: 3ch;
+}
 #cartDetailsContainer {
     display: flex;
     justify-content: right;
   }
-  #deleteCartItemOne {
+  button {
       margin: 3px 6px 3px 6px;
       padding: 0px 3px 0px 3px;
   }
