@@ -11,7 +11,11 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { FormsModule } from '@angular/forms';
-import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { Order } from './models/order/order';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { OrderDetailsComponent } from './components/order-details/order-details.component';
+
+
 
 
 
@@ -27,7 +31,10 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
     LoginComponent,
     OrderHistoryComponent,
     CustomerDetailsComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    OrderDetailsComponent
+    
+    
 
 
   ],

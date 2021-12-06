@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CartItem } from 'src/app/models/cart-item/cart-item';
-import { Customer } from 'src/app/models/customer/customer';
-import { CartDataService } from 'src/app/services/cart-data/cart-data.service';
+import { CartItem } from '../../models/cart-item/cart-item';
+import { Customer } from '../../models/customer/customer';
+import { Order } from '../../models/order/order';
+import { CartDataService } from '../../services/cart-data/cart-data.service';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +18,7 @@ export class LoginComponent implements OnInit {
   password: string = '';
   isAdmin: boolean;
   cartItems: CartItem ;
-  orders: CartItem ;
+  orders: Order ;
 
   constructor(private newCustomerInfo: CartDataService) { }
   // will we need to access cardDataService in order to refference current users order history or just declare/import order history? is cartDataService soley for localStorage for active orders?
@@ -26,9 +29,9 @@ export class LoginComponent implements OnInit {
     this.newCustomerInfo.createCustomer(this.newCustomer).subscribe(response => {
       console.log(response);
     });
-  getUser(){
+  // getUser(){
     
-  }
+  // }
 //  getUser() = click event to get user from Db
   }
   

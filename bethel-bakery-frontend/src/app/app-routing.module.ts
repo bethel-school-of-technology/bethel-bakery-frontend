@@ -1,11 +1,11 @@
 import { Input, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductCardsComponent } from './components/product-cards/product-cards.component';
-import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
-import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { OrderDetailsComponent } from './components/order-details/order-details.component';
 
 
 
@@ -24,18 +24,16 @@ const routes: Routes = [
   {
     path: 'order-history',
     component: OrderHistoryComponent
-  }
-
+  },
     // ConfirmationComponent --> checkout
-  // },
-  // {
-  //   path: 'checkout',
-  //   component: ConfirmationComponent,
-  // },
-  // {
-  //   path: 'confirmation',
-  //   component: ConfirmationComponent
-  // }
+  {
+    path: 'confirmation',
+    component: ConfirmationComponent
+  },
+  {
+    path: 'order-details',
+    component: OrderDetailsComponent
+  }
 ];
 
 @NgModule({
