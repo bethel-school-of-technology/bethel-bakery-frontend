@@ -1,4 +1,4 @@
-<div class="container flex">
+<!-- <div class="container flex">
 <h3>Shipping Information</h3>
 <form id="customer-details" (ngSubmit)="createNew()">
     <div>
@@ -36,7 +36,51 @@
 </div>
     <div>
         <button (click)="getItems" class="btn-primary"><a routerlink="/confirmation"></a>Checkout</button>  
+
+        
+    </div>
+</form> -->
+
+<div class="container flex">
+<h3>Shipping Information</h3>
+<form id="customer-details" (ngSubmit)="createNew()">
+    <div>
+        <label for="firstName"></label>
+        <input type="text" placeholder="First Name" name="firstName" required [(ngModel)]="newCustomer.firstName">
+    </div>
+    <div>
+        <label for="lastName"></label>
+        <input type="text" placeholder="Last Name" name="lastName" required [(ngModel)]="newCustomer.lastName">
+    </div>
+    <div>
+        <label for="address"></label>
+        <input type="text" placeholder="Address" name="address" required [(ngModel)]="newCustomer.address">
+    </div>
+    <div>
+        <label for="email"></label>
+        <input type="email" placeholder="Email" name="email" email required [(ngModel)]="newCustomer.email">
+    </div>
+    <div>
+        <label for="phoneNumber"></label>
+        <input type="text" placeholder="Phone Number" name="phoneNumber" required [(ngModel)]="newCustomer.phoneNumber">
+    </div>
+    <h3>Payment Information</h3>
+    <div>
+    <label for="creditCardNumber"></label>
+    <input type="text" placeholder="Credit Card Number" name="creditCardNumber" required [(ngModel)]="newCustomer.creditCardNumber">
+</div>
+    <div>
+    <label for="expirationDate"></label>
+    <input type="text" placeholder="Expiration Date (MM/YY)" name="expirationDate" required [(ngModel)]="newCustomer.expiration">
+</div>
+    <div>
+    <label for="ccvCode"></label>
+    <input type="text" placeholder="CCV code" name="ccvCode" required [(ngModel)]="newCustomer.ccvCode">
+</div>
+    <div>
+        <button (click)="getItems" class="btn-primary"><a routerLink="/confirmation">Checkout</a></button>  
         <!-- take from local storage with get request -->
         
     </div>
 </form>
+
