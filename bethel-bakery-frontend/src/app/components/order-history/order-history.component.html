@@ -1,5 +1,4 @@
-*** ONLY USED FOR TESTING***
-<div class="container">
+<!-- <div class="container">
     <table >
       <tr>
         <th>Customer Name</th>
@@ -18,10 +17,10 @@
       </tr>
     </table>
     </div>
-
+ -->
 
   
-<!-- <div class="container">
+<div class="container">
     <table *ngFor="let order of orders; let i=index">
       <tr>
         <th>Customer Name</th>
@@ -29,9 +28,9 @@
         <th></th>
       </tr>
       <tr>
-        <td>{{order.firstName}} {{order.lastName}}</td>
-        <td>{{dateTimeStamp}}</td>
+        <td>{{neworder.firstName}} {{neworder.lastName}}</td>
+        <td>{{dateTimeStamp | date:'longDate'}}</td>
         <td><a routerLink="/order-details/{{order.id}}">View</a></td>
       </tr>
     </table>
-    </div> -->
+    </div>

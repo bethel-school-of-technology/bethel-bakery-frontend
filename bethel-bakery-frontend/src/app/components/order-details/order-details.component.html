@@ -1,5 +1,5 @@
 <!-- ***ONLY USED FOR TESTING*** -->
-<div class="container flex">
+<!-- <div class="container flex">
     <div>
       <h3>Shipping Information</h3>
         <ul>
@@ -32,20 +32,21 @@
         </table>
         </div>
         </div>
-    <div><button (click)="goBack()">go back</button></div>
-    <!-- 
+    <div><button (click)="goBack()">go back</button></div> -->
+    
     <div class="container flex" >
         <div *ngIf="oneOrder">
             <h3>Shipping Information</h3>
             <ul>
-                <li>{{order.firstName}}</li>
-                <li>{{order.lastName}}</li>
-                <li>{{order.address}}</li>
-                <li>{{order.email}}</li>
-                <li>{{order.phoneNumber}}</li>
+                <li>{{newOrder.firstName}}</li>
+                <li>{{newOrder.lastName}}</li>
+                <li>{{newOrder.address}}</li>
+                <li>{{newOrder.email}}</li>
+                <li>{{newOrder.phoneNumber}}</li>
             </ul>
             </div>
             <div>
+              <!-- replace newOrder not working for name,price,subtotal,total -->
         <h3>Order Details</h3>
         <table>
           <tr>
@@ -53,19 +54,19 @@
             <th>Price</th>
           </tr>
           <tr>
-            <td>{{order.name}}</td>
-            <td>{{order.price}}</td>
+            <td>{{newOrder.name}}</td>
+            <td>{{newOrder.price}}</td>
           </tr>
           <tr>
             <th>Subtotal</th>
             <th>Total</th>
         </tr>
         <tr>
-            <td>{{order.subTotal}}</td>
-            <td>{{order.total}}</td>
+            <td>{{newOrder.subTotal}}</td>
+            <td>{{newOrder.total}}</td>
         </tr>
         </table>
         </div>
         </div>
         <div><button (click)="goBack()">go back</button></div>
-         -->
+        

@@ -17,7 +17,7 @@ export class Order {
     ccv: string = "";
     subTotal: number = 0 ;
     total: number = 0 ;
-    dateTimeStamp: number = 0; 
+    dateTimeStamp: number | Date;
     cartItems: CartItem[] = [];
     customer: Customer = new Customer; 
    static orderInfo: any;
