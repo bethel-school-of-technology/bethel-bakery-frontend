@@ -15,7 +15,7 @@ export class OrderHistoryComponent implements OnInit {
 
   //Property
   orders: Order[] = [];
-  order: Order = new Order();
+  Order: Order = new Order();
   
   constructor(private orderService: OrderDetailsService) { }
 

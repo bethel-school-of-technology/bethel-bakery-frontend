@@ -1,5 +1,5 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartDetailsComponent } from '../cart-details/cart-details.component';
 import { Order } from '../../models/order/order';
@@ -9,6 +9,7 @@ import { Product } from '../../models/product/product';
 import { CartItem } from '../../models/cart-item/cart-item';
 import { Customer } from '../../models/customer/customer';
 
+
 @Component({
   selector: 'app-customer-details',
   templateUrl: './customer-details.component.html',
@@ -17,8 +18,8 @@ import { Customer } from '../../models/customer/customer';
 export class CustomerDetailsComponent implements OnInit {
 
   newOrder: Order = new Order();
-  
 
+  
   id: number = 0;
   firstName: string = "";
   lastName: string = "";
@@ -30,7 +31,7 @@ export class CustomerDetailsComponent implements OnInit {
   ccv: string = "";
   subTotal: number = 0 ;
   total: number = 0 ;
-  dateTimeStamp: number = 0; 
+  dateTimeStamp: number = Date.now(); 
   cartItems: CartItem[] = [];
   customer: Customer = new Customer; 
  static orderInfo: any;

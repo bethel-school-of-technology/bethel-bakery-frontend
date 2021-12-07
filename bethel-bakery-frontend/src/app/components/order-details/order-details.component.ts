@@ -15,26 +15,24 @@ export class OrderDetailsComponent implements OnInit {
   //Property
   
   id : any;
-  oneOrder: Order = new Order();
+  oneOrder: any;
 
   
   constructor(
     private orderService: OrderDetailsService,
     private location: Location,
-    private route: ActivatedRoute,
-    public order: Order,
-
+    private route: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
-    // this.getOneOrder();
+    this.getOneOrder();
   }
 
   
-  // getOneOrder (): void {
-  //   this.id = (this.route.snapshot.paramMap.get(this.id));
-  //   this.orderService.getOrders(this.id).subscribe(order => this.oneOrder = order);
-  // }
+  getOneOrder (): void {
+    this.oneOrder = (this.route.snapshot.paramMap.get(this.id));
+    this.orderService.getOneOrder(this.id).subscribe(order => this.oneOrder = order);
+  }
 
   goBack(): void {
     this.location.back();
