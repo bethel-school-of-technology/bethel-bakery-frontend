@@ -1,14 +1,28 @@
-<p>Shopping Cart Contents:</p>
-<br>
-<div id="cartDetailsContainer" *ngFor="let item of items; index as i">
-        <ul>Name: </ul>
-        <ul>{{item.product.name}}</ul>
-        <ul>Price: </ul>
-        <ul>{{item.product.price}}</ul>
-        <ul> #:</ul>
-        <ul> {{item.productQuantity}}</ul>
-        <button>X</button>
+<p>cart-details-works!</p>
+<div id="cartDetailsContainer" >
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">Your Shopping Cart:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of items; index as i">
+                    <td>{{item.product.name}}</td>
+                    <td>{{item.product.price}}</td>
+                    <td>#{{item.productQuantity}}</td>
+                    <button>X</button>
+                </tr>
+            </tbody>
+        </table>
     
+        <!-- <ul>Name: </ul>
+        <ul></ul>
+        <ul>Price: </ul>
+        <ul></ul>
+        <ul> #:</ul>
+        <ul> </ul> -->
+        
     <!-- For using DOM... Not currently used and typescript is commented out...
     <h2 id="cartDetailsName">Cart Item One</h2>
     <h3 id="cartDetailsPrice">$0.00</h3>
