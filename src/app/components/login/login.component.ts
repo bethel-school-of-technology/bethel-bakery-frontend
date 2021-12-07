@@ -32,16 +32,10 @@ export class LoginComponent implements OnInit {
     error => {
       this.isInvalid = true;
     });
-
-   
-  // getUser(){
-    
-  // }
-//  getUser() = click event to get user from Db
   }
   
   goToSignUp() {
-      
+    this.router.navigate(['sign-up']);    
   }
 
 }
