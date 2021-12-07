@@ -1,4 +1,9 @@
 .confirmation{
+    flex: display;
     align-items: center;
-    background-color: aqua;
+    -ms-flex-align: center;
+}
+.Body{
+    background-color: #ff6347;
+    text-decoration-color: goldenrod;
 }
