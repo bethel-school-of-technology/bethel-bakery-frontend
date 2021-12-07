@@ -11,6 +11,11 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
 
 const routes: Routes = [
   {
+    path: '', 
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
     path: 'cart',
     component: CheckoutComponent
   },

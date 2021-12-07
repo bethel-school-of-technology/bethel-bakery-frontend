@@ -5,6 +5,5 @@ export class User {
     userFirstName: string = "";
     userLastName: string = "";
     userPassword: string = "";
-    roles: Role[] = [];
-    jwtToken: string = "";    
+    roles: Role[] = []; 
 }
