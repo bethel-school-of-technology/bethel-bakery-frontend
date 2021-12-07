@@ -44,7 +44,7 @@ export class CustomerDetailsComponent implements OnInit {
   getItems(product: Product): void {
    
     let url = 'loalhost:8080/order';
-  //  what is the URL for posting data to the Db?
+  
     if (localStorage.getItem('cartItems') != null) {
       this.cartItems = JSON.parse(localStorage.getItem('cartItems'));
      }
