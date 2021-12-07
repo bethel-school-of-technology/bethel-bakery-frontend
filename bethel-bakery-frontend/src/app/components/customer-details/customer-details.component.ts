@@ -51,7 +51,7 @@ export class CustomerDetailsComponent implements OnInit {
     }
     addOrder(){
       this.orderDetailsService.newOrder(this.newOrder).subscribe(order =>{
-        console.log(order);
+      //  create post method to post items from the local storage, and 
 
       })
 
