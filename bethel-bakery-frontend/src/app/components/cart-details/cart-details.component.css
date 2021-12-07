@@ -3,11 +3,9 @@ aside {
     align-content: flex-start;
 }
 p {
-    display: flex;
-    justify-content: right;
-    font-size: 3ch;
+    display:none
 }
-ul {
+tr {
     font-size: 3ch;
 }
 #cartDetailsContainer {
