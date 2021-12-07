@@ -1,1 +1,16 @@
-<p>cart-details works!</p>
+<p>Shopping Cart Contents:</p>
+<br>
+<div id="cartDetailsContainer" *ngFor="let item of items; index as i">
+        <ul>Name: </ul>
+        <ul>{{item.product.name}}</ul>
+        <ul>Price: </ul>
+        <ul>{{item.product.price}}</ul>
+        <ul> #:</ul>
+        <ul> {{item.productQuantity}}</ul>
+        <button>X</button>
+    
+    <!-- For using DOM... Not currently used and typescript is commented out...
+    <h2 id="cartDetailsName">Cart Item One</h2>
+    <h3 id="cartDetailsPrice">$0.00</h3>
+    <button id="deleteCartItemOne">X</button> -->
+</div>
