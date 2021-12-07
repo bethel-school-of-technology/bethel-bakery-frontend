@@ -1,0 +1,42 @@
+<div class="container flex">
+<h3>Shipping Information</h3>
+<form id="customer-details" (ngSubmit)="addOrder()">
+    <div>
+        <label for="firstName"></label>
+        <input type="text" placeholder="First Name" name="firstName" required [(ngModel)]="newOrder.firstName">
+    </div>
+    <div>
+        <label for="lastName"></label>
+        <input type="text" placeholder="Last Name" name="lastName" required [(ngModel)]="newOrder.lastName">
+    </div>
+    <div>
+        <label for="address"></label>
+        <input type="text" placeholder="Address" name="address" required [(ngModel)]="newOrder.address">
+    </div>
+    <div>
+        <label for="email"></label>
+        <input type="text" placeholder="Email" name="email" email required [(ngModel)]="newOrder.email">
+    </div>
+    <div>
+        <label for="phoneNumber"></label>
+        <input type="text" placeholder="Phone Number" name="phoneNumber" required [(ngModel)]="newOrder.phoneNumber">
+    </div>
+    <h3>Payment Information</h3>
+    <div>
+    <label for="creditCardNumber"></label>
+    <input type="text" placeholder="Credit Card Number" name="creditCardNumber" required [(ngModel)]="newOrder.creditCardNumber">
+</div>
+    <div>
+    <label for="expiration"></label>
+    <input type="text" placeholder="Expiration Date (MM/YY)" name="expiration" required [(ngModel)]="newOrder.expiration">
+</div>
+    <div>
+    <label for="ccv"></label>
+    <input type="text" placeholder="CCV" name="ccv" required [(ngModel)]="newOrder.ccv">
+</div>
+    <div>
+        <button (click)="getItems" class="btn-primary"><a routerLink="/confirmation">Checkout</a></button>  
+        <!-- take from local storage with get request -->
+        
+    </div>
+</form>

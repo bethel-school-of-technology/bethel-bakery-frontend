@@ -1,0 +1,72 @@
+<!-- ***ONLY USED FOR TESTING*** -->
+<!-- <div class="container flex">
+    <div>
+      <h3>Shipping Information</h3>
+        <ul>
+          <li>First Name</li>
+          <li>Last Name</li>
+          <li>5454 Acorn Ave Littleford, GA 45971</li>
+          <li>email@gmail.com</li>
+          <li>217-555-6568</li>
+        </ul>
+    </div>
+    <div>
+      <h3>Order Details</h3>
+        <table>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+          </tr>
+          <tr>
+            <td>Bagel</td>
+            <td>$4.90</td>
+          </tr>
+          <tr>
+            <th>Subtotal</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td>$24.50</td>
+            <td>$6.22</td>
+        </tr>
+        </table>
+        </div>
+        </div>
+    <div><button (click)="goBack()">go back</button></div> -->
+    
+    <div class="container flex" >
+        <div *ngIf="oneOrder">
+            <h3>Shipping Information</h3>
+            <ul>
+                <li>{{newOrder.firstName}}</li>
+                <li>{{newOrder.lastName}}</li>
+                <li>{{newOrder.address}}</li>
+                <li>{{newOrder.email}}</li>
+                <li>{{newOrder.phoneNumber}}</li>
+            </ul>
+            </div>
+            <div>
+              <!-- replace newOrder not working for name,price,subtotal,total -->
+        <h3>Order Details</h3>
+        <table>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+          </tr>
+          <tr>
+            <td>{{oneOrder.name}}</td>
+            <td>{{oneOrder.price}}</td>
+          </tr>
+          <tr>
+            <th>Subtotal</th>
+            <th>Total</th>
+        </tr>
+        <tr>
+            <td>{{oneOrder.subTotal}}</td>
+            <td>{{oneOrder.total}}</td>
+        </tr>
+        </table>
+        </div>
+        </div>
+        <div><button (click)="goBack()">go back</button></div>
+        
