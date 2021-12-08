@@ -9,5 +9,5 @@ import { Customer } from 'src/app/models/customer/customer';
 })
 export class LoginService {
 
-  constructor(private http: HTTPClient) { }
+  constructor(private http: HttpClient) { }
 }
