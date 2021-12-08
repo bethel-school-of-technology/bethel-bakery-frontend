@@ -1,6 +1,7 @@
 # BethelBakeryFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.
+Anyone who actually reads this, deserves a cookie. (Slugguts)
 
 ## Development server
 
