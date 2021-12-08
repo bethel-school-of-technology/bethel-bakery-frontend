@@ -7,6 +7,8 @@ import { Customer } from '../../models/customer/customer';
 import { Order } from '../../models/order/order';
 import { CartDataService } from '../../services/cart-data/cart-data.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { Credentials } from 'src/app/models/credentials';
 
 @Component({
   selector: 'app-login',
@@ -14,23 +16,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user: User = new User;
-  isInvalid: boolean = false;
+  credentials: Credentials = new Credentials;
+  invalidLogin: boolean = false;
 
-  constructor(private newCustomerInfo: CartDataService, private loginData: LoginService, private router: Router) { }
+  constructor(private newCustomerInfo: CartDataService, private authService: AuthService, private router: Router) { }
   // will we need to access cardDataService in order to refference current users order history or just declare/import order history? is cartDataService soley for localStorage for active orders?
 
   ngOnInit(): void {
   }
 
   logIn() {
-    this.loginData.logIn(this.user).subscribe( reponse => {
-      localStorage.removeItem("authResponse");
-      localStorage.setItem("authResponse", JSON.stringify(reponse));
+    console.log(this.credentials);
+    this.authService.logIn(this.credentials).subscribe( reponse => {
+      let result: string = reponse.jwtToken;
+      localStorage.removeItem("token");
+      localStorage.setItem("token", result);
       this.router.navigate(['/shop']);
     },
     error => {
-      this.isInvalid = true;
+      this.invalidLogin = true;
     });
   }
   

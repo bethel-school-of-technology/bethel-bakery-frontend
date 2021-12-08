@@ -1,14 +1,14 @@
 <div class="login">
     <h3>Login</h3>
-    <h3 *ngIf="isInvalid">Your username and/or password is incorrect</h3>
+    <h3 *ngIf="invalidLogin">Invalid username and/or password.</h3>
     <form>
         <div>
             <label for="Username"></label>
-            <input name="Username" [(ngModel)]="user.userName" type="email" placeholder="Username">
+            <input name="Username" [(ngModel)]="credentials.userName" type="email" placeholder="Username">
         </div>
         <div>
             <label for="Password"></label>
-            <input name="Password" [(ngModel)]="user.userPassword" type="password" placeholder="Password">
+            <input name="Password" [(ngModel)]="credentials.userPassword" type="password" placeholder="Password">
         </div>
         <button (click)="logIn()">Login</button>
         <button (click)="goToSignUp()">Sign Up</button>
