@@ -56,7 +56,9 @@ export class CartDataService {
     }
 
     //sore to local storage
+    //Key "cartItems"
     localStorage.setItem("cartItems", JSON.stringify(this.cartItems));
+    
 
     //debug
     this.cartItems = JSON.parse(localStorage.getItem("cartItems"));
@@ -64,7 +66,7 @@ export class CartDataService {
     console.log(this.cartItems);
     console.log("");
   }
-
+  
   saveProduct (productId: number): Observable<any> {
     return this.http.post<any>(this.addToCartUrl + "/" + productId + "/1", productId, httpOptions);
   }

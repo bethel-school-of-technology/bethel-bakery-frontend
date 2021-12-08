@@ -11,9 +11,10 @@
                     <td>{{item.product.name}}</td>
                     <td>{{item.product.price}}</td>
                     <td>#{{item.productQuantity}}</td>
-                    <button>X</button>
+                    <button (click)="deleteCartItem(i)" >X</button>
                 </tr>
             </tbody>
+            <button (click)="deleteCartAll()">Empty Cart</button>
         </table>
     
         <!-- <ul>Name: </ul>
