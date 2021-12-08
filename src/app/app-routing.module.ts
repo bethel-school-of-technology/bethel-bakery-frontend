@@ -6,6 +6,7 @@ import { OrderHistoryComponent } from './components/order-history/order-history.
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
+import { SignUpComponent } from './components/sign-up/sign-up/sign-up.component';
 
 
 
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: 'order-details',
     component: OrderDetailsComponent
+  },
+  {
+    path: 'sign-up',
+    component: SignUpComponent
   }
 ];
 

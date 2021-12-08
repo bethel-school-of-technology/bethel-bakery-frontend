@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { Order } from './models/order/order';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
+import { SignUpComponent } from './components/sign-up/sign-up/sign-up.component';
 
 
 
@@ -32,7 +33,8 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     OrderHistoryComponent,
     CustomerDetailsComponent,
     ConfirmationComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    SignUpComponent
     
     
 

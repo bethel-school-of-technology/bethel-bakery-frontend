@@ -1,18 +1,18 @@
 <nav>
     <div class="container flex">
-    <div class="cart">
-    <ul>
-        <li><i class="fas fa-shopping-cart fa-3x"></i></li>
-        <li><a routerLink="/cart">Checkout</a></li>
-    </ul>
-    </div>
-    <div class="links">
-    <ul>
-        <li><a routerLink="/shop">Shop</a></li>
-        <li><a routerLink="/order-history">Order History</a></li>
-        <li><a routerLink="/login">Log Out</a></li>
-    </ul>
-    </div>
+        <div class="cart">
+            <ul>
+                <li><i class="fas fa-shopping-cart fa-3x"></i></li>
+                <li><a routerLink="/cart">Checkout</a></li>
+            </ul>
+        </div>
+        <div class="links">
+            <ul>
+                <li><a routerLink="/shop">Shop</a></li>
+                <li><a routerLink="/order-history">Order History</a></li>
+                <li><a routerLink="/login" (click)="logOut()">Log Out</a></li>
+            </ul>
+        </div>
     </div>
     <!-- <button (click)="getQtyTotal()"></button> -->
 </nav>
