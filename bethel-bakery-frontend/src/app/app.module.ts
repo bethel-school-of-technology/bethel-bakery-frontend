@@ -42,8 +42,8 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
-
+    FormsModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
