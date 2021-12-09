@@ -16,7 +16,7 @@ import { Customer } from '../../models/customer/customer';
 })
 export class CustomerDetailsComponent implements OnInit {
 
-  newOrder: Order = new Order();
+  newOrder: Order = new Order;
   
 
   id: number = 0;
@@ -51,18 +51,10 @@ export class CustomerDetailsComponent implements OnInit {
     }
     addOrder(){
       this.orderDetailsService.newOrder(this.newOrder).subscribe(order =>{
-      //  create post method to post items from the local storage, and 
+      this.http.post()
 
       })
 
-    }
-  //  addOrder = (order:Order) => {
-  //    this.orderDetailsService.newOrder(Order).subscribe(response => {
-      
-  //     this
-
-  //       // adding to the Db
-  //    } )
    }
   
   
