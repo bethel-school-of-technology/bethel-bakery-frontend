@@ -21,6 +21,14 @@ export class NavBarComponent implements OnInit {
   logOut(){
     this.authService.logOut();
   }
+
+  isLogedIn(): boolean{
+    return this.authService.isLoggedIn();
+  }
+
+  isAdmin(): boolean {
+    return this.authService.isAdmin();
+  }
 //   getQtyTotal (): void {
 //     this.count = this.cartDataService.getTotalInCart();
 //     console.log(this.count);

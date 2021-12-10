@@ -3,13 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable, of } from 'rxjs';
 import { Product } from 'src/app/models/product/product';
 
-
-
-const httpOptions = 
-{
-  headers: new HttpHeaders({'Content-type': 'application/json'})
-}
-
 @Injectable({providedIn: 'root'})
 export class ProductDataService {
 
@@ -21,6 +14,11 @@ export class ProductDataService {
   //Methods
   getProducts ():Observable<Product[]> 
   {
-    return this.http.get<Product[]>(this.productUrl);
-  } 
+    let token = localStorage.getItem('token');
+    let headers = new HttpHeaders().set("Authorization", "Bearer " + token);
+    
+    const httpOptions = {headers};
+    
+    return this.http.get<Product[]>(this.productUrl, httpOptions);
+  }
 }
