@@ -5,7 +5,6 @@ import { Order } from '../models/order/order';
 import { AuthService } from './auth/auth.service';
 import { CartItem } from '../models/cart-item/cart-item';
 import { MoneyService } from 'bethel-bakery-frontend/src/app/services/money/money.service';
-import { User } from '../models/user/user';
 
 const httpOptions = {
   headers: new HttpHeaders({'content-type ': 'application/json'})
@@ -35,7 +34,11 @@ export class OrderDetailsService {
    
   getOrders ():Observable<Order[]>
   {
-    return this.http.get<Order[]>(this.orderHistoryUrl);
+    let token = localStorage.getItem('token');
+    let headers = new HttpHeaders().set("Authorization", "Bearer " + token);
+    const httpOptions = {headers};
+
+    return this.http.get<Order[]>(this.orderUrl, httpOptions);
   }
 
   getOneOrder(id: number):Observable<Order>{
