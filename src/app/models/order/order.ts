@@ -1,24 +1,19 @@
 import { CartItem } from "../cart-item/cart-item";
-import { Customer } from "../customer/customer";
-
+import { User } from "../user/user";
 
 export class Order {
-    static order(order: any): string {
-        throw new Error('Method not implemented.');
-      }
-    orderId: number = 0;
+    id: number = 0;
+    user: User = new User();
+    cartItems: CartItem[] = [];
     firstName: string = "";
     lastName: string = "";
-    address: string = "";
     email: string = "";
     phoneNumber: string = "";
+    address: string = "";
     creditCardNumber: string = "";
     expiration: string = "";
-    ccv: string = "";
+    ccv: number = 0;
     subTotal: number = 0 ;
     total: number = 0 ;
-    dateTimeStamp: number | Date;
-    cartItems: CartItem[] = [];
-    customer: Customer = new Customer; 
-   static orderInfo: any;
+    dateTimeStamp: string;
 }

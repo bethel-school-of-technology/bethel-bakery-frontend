@@ -2,10 +2,6 @@ import { Component, OnInit, } from '@angular/core';
 import { Order } from '../../models/order/order';
 import { OrderDetailsService } from '../../services/order-details.service';
 
-
-
-
-
 @Component({
   selector: 'app-order-history',
   templateUrl: './order-history.component.html',
@@ -21,12 +17,10 @@ export class OrderHistoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOrders();
-   
-
   }
 
   getOrders = () => {
-    this.orderService.getOrders().subscribe(orders => this.orders = orders);
+    this.orderService.getOrders().subscribe(response => this.orders = response);
   }
 
 }

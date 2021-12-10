@@ -14,28 +14,21 @@ export class ProductCardsComponent implements OnInit {
   // Properties
   products: Product[] = [];
   price: number = 0;
-
+  
   // Constructor
   constructor(private productService: ProductDataService, private cartDataService: CartDataService) { }
 
   ngOnInit(): void {
     this.getProducts();
-
-
   }
 
   //localstorage?
-
-
-  
-  addProductToCart = (productIndex: number) => {
-    this.getProducts();
-    console.log(this.products);
-    this.cartDataService.saveProduct(this.products[productIndex].productId).subscribe(
-      response => {
-    
-      });
+  AddItemToCart(product: Product):void {
+    this.cartDataService.addCartItemToLocalStorage(product);
+    alert(this.createMessage(product));
   }
+  
+  
 
 
 
@@ -43,4 +36,7 @@ export class ProductCardsComponent implements OnInit {
     this.productService.getProducts().subscribe(products => this.products = products);
   }
 
+  createMessage(product: Product): string {
+    return product.name + " was added to cart!";
+  }
 }
