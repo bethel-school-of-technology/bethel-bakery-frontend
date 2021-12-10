@@ -3,28 +3,20 @@ import { Injectable } from '@angular/core';
 import { MoneyService } from 'bethel-bakery-frontend/src/app/services/money/money.service';
 import { Observable } from 'rxjs';
 import { CartItem } from 'src/app/models/cart-item/cart-item';
-import { Customer } from 'src/app/models/customer/customer';
 import { Product } from 'src/app/models/product/product';
+import { AuthService } from '../auth/auth.service';
 
-
-
-
-const httpOptions = 
-{
-  headers: new HttpHeaders({'Content-type': 'application/json'})
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartDataService {
 
-  addToCartUrl: string = "http://localhost:8080/cart/add"
-  cartUrl: string = "http://localhost:8080/cart"
+  cartUrl: string = "http://localhost:8080/cartitem"
 
   cartItems: CartItem[] = [];
 
-  constructor(private http: HttpClient, private moneyService: MoneyService) { }
+  constructor(private http: HttpClient, private moneyService: MoneyService, private authService: AuthService) { }
 
   addCartItemToLocalStorage(product: Product): void {
 
@@ -36,8 +28,12 @@ export class CartDataService {
     //Checks to see if product already exist in cart
     let foundProduct: Boolean = false;
     let productIndex: number = 0;
+    let currentUser: string = this.authService.currentUser.sub;
+
     for(let i: number = 0; i < this.cartItems.length; i++){
-      if(this.cartItems[i].product.id === product.id){
+      let cartItemProductId: number = this.cartItems[i].product.id;
+      let cartItemUser: string = this.cartItems[i].user.userName;
+      if(cartItemProductId === product.id && cartItemUser === currentUser){
         foundProduct = true;
         productIndex = i;
       }
@@ -45,16 +41,21 @@ export class CartDataService {
     
     //if the product does exist in array than increase quantity
     if(foundProduct == true){
+       
       this.cartItems[productIndex].productQuantity++;
       this.cartItems[productIndex].subTotal = this.moneyService.calculateSubTotal       (this.cartItems[productIndex]);
+      
     }
 
     //if product does not exist in array than create a new cart item.
     else {
+      let userName: string = this.authService.currentUser.sub;
+      console.log(userName);
       let newCartItem: CartItem = new CartItem();
       newCartItem.product = product;
       newCartItem.productQuantity = 1;
       newCartItem.subTotal = product.price;
+      newCartItem.user.userName = userName;
       this.cartItems.push(newCartItem);
     }
 
@@ -62,12 +63,18 @@ export class CartDataService {
     localStorage.setItem("cartItems", JSON.stringify(this.cartItems));
   }
 
-  saveProduct (productId: number): Observable<any> {
-    return this.http.post<any>(this.addToCartUrl + "/" + productId + "/1", productId, httpOptions);
+  addCartItem (cartItem: CartItem): Observable<CartItem> {
+    let token = localStorage.getItem('token');
+    let headers = new HttpHeaders().set("Authorization", "Bearer " + token);
+    const httpOptions = {headers};
+
+    return this.http.post<CartItem>(this.cartUrl, cartItem, httpOptions);
   }
 
-  createCustomer(newCustomer: Customer) : Observable<Customer>{
-    return this.http.post<Customer>(this.cartUrl, newCustomer)
+  addManyCartItems(cartItems: CartItem[]) {
+    for(let i: number = 0; i < cartItems.length; i++){
+      this.addCartItem(cartItems[i]).subscribe( response => {});
+    }
   }
 }
 

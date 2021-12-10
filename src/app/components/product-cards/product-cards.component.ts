@@ -28,14 +28,7 @@ export class ProductCardsComponent implements OnInit {
     alert(this.createMessage(product));
   }
   
-  addProductToCart = (productIndex: number) => {
-    this.getProducts();
-    console.log(this.products);
-    this.cartDataService.saveProduct(this.products[productIndex].id).subscribe(
-      response => {
-    
-      });
-  }
+  
 
 
 
