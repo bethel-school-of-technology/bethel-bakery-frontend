@@ -1,44 +1,78 @@
 <div class="container flex">
     <h3>Shipping Information</h3>
-    <form id="customer-details">
+    <form id="customer-details" #form="ngForm" (ngSubmit)="submitOrder()">
         <div>
             <label for="firstName"></label>
-            <input type="text" placeholder="First Name" name="firstName" required [(ngModel)]="newOrder.firstName">
+            <input type="text" placeholder="First Name" name="firstName" required [(ngModel)]="newOrder.firstName"
+                #firstName="ngModel">
+            <div class="alert" *ngIf="firstName.touched && !firstName.valid">
+                First Name is required.
+            </div>
         </div>
         <div>
             <label for="lastName"></label>
-            <input type="text" placeholder="Last Name" name="lastName" required [(ngModel)]="newOrder.lastName">
+            <input type="text" placeholder="Last Name" #lastName="ngModel" name="lastName" required
+                [(ngModel)]="newOrder.lastName">
+            <div class="alert" *ngIf="lastName.touched && !lastName.valid">
+                Last Name is required
+            </div>
         </div>
         <div>
             <label for="address"></label>
-            <input type="text" placeholder="Address" name="address" required [(ngModel)]="newOrder.address">
+            <input type="text" placeholder="Address" #address="ngModel" name="address" required
+                [(ngModel)]="newOrder.address">
+            <div class="alert" *ngIf="lastName.touched && !lastName.valid">
+                Address is required.
+            </div>
         </div>
         <div>
             <label for="email"></label>
-            <input type="text" placeholder="Email" name="email" email required [(ngModel)]="newOrder.email">
+            <input type="text" placeholder="Email" #email="ngModel" name="email" email required
+                [(ngModel)]="newOrder.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            <div class="alert" *ngIf="email.touched && !email.valid">
+                <div *ngIf="email.errors.required">Email is required.</div>
+                <div *ngIf="email.errors.pattern">Invalid Email.</div>
+            </div>
         </div>
         <div>
             <label for="phoneNumber"></label>
-            <input type="text" placeholder="Phone Number" name="phoneNumber" required
-                [(ngModel)]="newOrder.phoneNumber">
+            <input type="text" placeholder="Phone Number xxx-xxx-xxxx" name="phoneNumber" required
+                [(ngModel)]="newOrder.phoneNumber" #phoneNumber="ngModel" pattern="^\d{3}-\d{3}-\d{4}$">
+            <div class="alert" *ngIf="phoneNumber.touched && !phoneNumber.valid">
+                <div *ngIf="phoneNumber.errors.required">Phone number is required.</div>
+                <div *ngIf="phoneNumber.errors.pattern">Invalid phone number.</div>
+            </div>
         </div>
         <h3>Payment Information</h3>
         <div>
             <label for="creditCardNumber"></label>
-            <input type="text" placeholder="Credit Card Number" name="creditCardNumber" required
-                [(ngModel)]="newOrder.creditCardNumber">
+            <input type="text" placeholder="Credit Card Number xxxx-xxxx-xxxx-xxxx" name="creditCardNumber" required
+                [(ngModel)]="newOrder.creditCardNumber" pattern="^\d{4}-\d{4}-\d{4}-\d{4}$" #creditCardNumber="ngModel">
+            <div class="alert" *ngIf="creditCardNumber.touched && !creditCardNumber.valid">
+                <div *ngIf="creditCardNumber.errors.required">Credit Card Number is required.</div>
+                <div *ngIf="creditCardNumber.errors.pattern">Invalid credit card number.</div>
+            </div>
         </div>
         <div>
             <label for="expiration"></label>
             <input type="text" placeholder="Expiration Date (MM/YY)" name="expiration" required
-                [(ngModel)]="newOrder.expiration">
+                [(ngModel)]="newOrder.expiration" pattern="(?:0[1-9]|1[0-2])/[0-9]{2}" #expiration="ngModel">
+            <div class="alert" *ngIf="expiration.touched && !expiration.valid">
+                <div *ngIf="expiration.errors.required">Expiration date is required.</div>
+                <div *ngIf="expiration.errors.pattern">Invalid expiration.</div>
+            </div>
         </div>
         <div>
             <label for="ccv"></label>
-            <input type="text" placeholder="CCV" name="ccv" required [(ngModel)]="newOrder.ccv">
+            <input type="text" placeholder="CVV" name="cVv" required [(ngModel)]="newOrder.ccv" pattern="^[0-9]{3}$"
+                #cvv="ngModel">
+            <div class="alert" *ngIf="cvv.touched && !cvv.valid">
+                <div *ngIf="cvv.errors.required">cvv date is required.</div>
+                <div *ngIf="cvv.errors.pattern">Invalid cvv.</div>
+            </div>
         </div>
         <div>
-            <button (click)="submitOrder()" class="btn-primary">Submit</button>
+            <button [disabled]="!form.valid" class="btn-primary">Submit</button>
             <!-- take from local storage with get request -->
         </div>
     </form>

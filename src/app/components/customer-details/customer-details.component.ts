@@ -15,58 +15,26 @@ import { CartItem } from '../../models/cart-item/cart-item';
   styleUrls: ['./customer-details.component.css']
 })
 export class CustomerDetailsComponent implements OnInit {
-
   newOrder: Order = new Order();
   url = 'loalhost:8080/order';
+  nothingInCart: boolean = true;
 
-<<<<<<< HEAD
-  //   id: number = 0;
-  //   firstName: string = "";
-  //   lastName: string = "";
-  //   address: string = "";
-  //   email: string = "";
-  //   phoneNumber: string = "";3
-  //   creditCardNumber: string = "";
-  //   expiration: string = "";
-  //   ccv: string = "";
-  //   subTotal: number = 0 ;
-  //   total: number = 0 ;
-  //   dateTimeStamp: number = Date.now(); 
-  //   cartItems: CartItem[] = [];
-  //   customer: Customer = new Customer; 
-  //  static orderInfo: any;
-
-=======
   constructor(private router: Router, private cartDataService: CartDataService, private http: HttpClient, private orderDetailsService: OrderDetailsService) { }
->>>>>>> 89fe4c62472c26733f911058592fe19a8ce49835
 
 
   ngOnInit(): void {}
 
   submitOrder() {
-    this.orderDetailsService.submitOrder(this.newOrder);  
-  }
-<<<<<<< HEAD
-  getItems(product: Product): void {
+    this.nothingInCart = this.orderDetailsService.checkNothingInCart();
 
-    // let url = 'loalhost:8080/order';
-
-    if (localStorage.getItem('cartItems') != null) {
-      this.cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    if(!this.nothingInCart){
+      this.orderDetailsService.submitOrder(this.newOrder);  
+      this.router.navigate(['/confirmation']);
+    } else {
+      alert("There are no Items In your cart!")
     }
+    
   }
-  addOrder() {
-  
-    return this.http.post(this.url, this.newOrder).toPromise().then(data: any =>{
-
-    });
-  }
-
-}
-
-
-
-=======
 
   
 
@@ -94,6 +62,5 @@ export class CustomerDetailsComponent implements OnInit {
    }
   
   
->>>>>>> 89fe4c62472c26733f911058592fe19a8ce49835
 
 

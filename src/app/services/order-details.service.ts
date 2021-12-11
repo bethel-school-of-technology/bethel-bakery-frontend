@@ -131,4 +131,15 @@ export class OrderDetailsService {
 
     return cartItems;
   }
+
+  checkNothingInCart(): boolean {
+    let cartItems: CartItem[] = this.getCartItemsFromLocalStorage();
+    if(cartItems.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+
 }
