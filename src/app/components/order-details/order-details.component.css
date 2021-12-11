@@ -1,52 +1,47 @@
 .container {
-    background-color: var(--light-color);
-    }
+  background-color: var(--light-color);
+}
 
 table {
-    width: 50%;
-    float: right;
-    border: solid 1px var(--dark-color);
-    padding: 20px;
-    background-color: var(--light-color);
-  }
+  width: 400px;
+  float: right;
+  border: solid 1px var(--dark-color);
+  padding: 20px;
+  background-color: var(--light-color);
+}
 
-  td {
-    text-align: center;
-    
-  }
-  
-  th {
-    height: 70px;
-  }
+td {
+  text-align: center;
+}
 
-  
+th {
+  height: 70px;
+}
 
-  ul{
-    float: left;
-    list-style-type: none;
-    border: solid 1px var(--dark-color);
-    padding: 20px;
-    background-color: var(--light-color);
-  }
+ul {
+  float: left;
+  list-style-type: none;
+  border: solid 1px var(--dark-color);
+  padding: 20px;
+  background-color: var(--light-color);
+}
 
-  li{
-      padding: 5px;
-  }
+li {
+  padding: 5px;
+}
 
-  button{
-      position:fixed;
-      left: 15px;
-      bottom: 50px;
-    
-  }
+button {
+  position: fixed;
+  left: 15px;
+  bottom: 50px;
+}
 
-  .flex{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-  
-  }
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
 
-  h3{
-      padding: 8px;
-  }
+h3 {
+  padding: 8px;
+}

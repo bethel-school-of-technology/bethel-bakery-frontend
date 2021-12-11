@@ -33,40 +33,47 @@
         </div>
         </div>
     <div><button (click)="goBack()">go back</button></div> -->
-    
-    <div class="container flex" >
-        <div *ngIf="oneOrder">
-            <h3>Shipping Information</h3>
-            <ul>
-                <li>{{newOrder.firstName}}</li>
-                <li>{{newOrder.lastName}}</li>
-                <li>{{newOrder.address}}</li>
-                <li>{{newOrder.email}}</li>
-                <li>{{newOrder.phoneNumber}}</li>
-            </ul>
-            </div>
-            <div>
-              <!-- replace newOrder not working for name,price,subtotal,total -->
-        <h3>Order Details</h3>
-        <table>
-          <tr>
-            <th>Product</th>
-            <th>Price</th>
-          </tr>
-          <tr>
-            <td>{{oneOrder.name}}</td>
-            <td>{{oneOrder.price}}</td>
-          </tr>
-          <tr>
-            <th>Subtotal</th>
-            <th>Total</th>
-        </tr>
-        <tr>
-            <td>{{oneOrder.subTotal}}</td>
-            <td>{{oneOrder.total}}</td>
-        </tr>
-        </table>
-        </div>
-        </div>
-        <div><button (click)="goBack()">go back</button></div>
-        
+
+<div class="container flex">
+  <div>
+    <h3>Shipping Information</h3>
+    <ul>
+      <li>First Name: {{oneOrder.firstName}}</li>
+      <li>Last Name: {{oneOrder.lastName}}</li>
+      <li>Address: {{oneOrder.address}}</li>
+      <li>Email: {{oneOrder.email}}</li>
+      <li>Phone Number: {{oneOrder.phoneNumber}}</li>
+    </ul>
+    <h3>Payment Infomation</h3>
+    <ul>
+      <li>Credit Card: {{oneOrder.creditCardNumber}}</li>
+      <li>Expiration: {{oneOrder.expiration}}</li>
+      <li>CCV: {{oneOrder.ccv}}</li>
+    </ul>
+  </div>
+  <div>
+
+    <h3>Order Details</h3>
+    <table>
+      <tr>
+        <th>Product</th>
+        <th>QTY.</th>
+        <th>Price</th>
+      </tr>
+      <tr *ngFor="let cartItem of cartItems">
+        <td>{{cartItem.product.name}}</td>
+        <td>{{cartItem.productQuantity}}</td>
+        <td>{{cartItem.subTotal/100}}</td>
+      </tr>
+      <tr>
+        <td>Sub Total: </td>
+        <td>{{oneOrder.subTotal/100}}</td>
+      </tr>
+      <tr>
+        <td>Total:</td>
+        <td>{{oneOrder.total / 100}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div><button (click)="goBack()">go back</button></div>
