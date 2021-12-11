@@ -12,7 +12,7 @@ export class Order {
     address: string = "";
     creditCardNumber: string = "";
     expiration: string = "";
-    ccv: number = 0;
+    ccv: number = null;
     subTotal: number = 0 ;
     total: number = 0 ;
     dateTimeStamp: string;
