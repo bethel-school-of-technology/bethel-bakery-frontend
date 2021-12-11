@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { OrderDetailsService } from '../../services/order-details.service';
 import { Order } from '../../models/order/order';
+import { CartItem } from 'src/app/models/cart-item/cart-item';
 
 
 @Component({
@@ -13,9 +14,9 @@ import { Order } from '../../models/order/order';
 export class OrderDetailsComponent implements OnInit {
 
   //Property
-  
-  id : any;
-  oneOrder: any;
+  id : number = 0;
+  oneOrder: Order = new Order;
+  cartItems: CartItem[];
 
   
   constructor(
@@ -26,12 +27,22 @@ export class OrderDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOneOrder();
+    
   }
 
-  
   getOneOrder (): void {
-    this.oneOrder = (this.route.snapshot.paramMap.get(this.id));
-    this.orderService.getOneOrder(this.id).subscribe(order => this.oneOrder = order);
+    let id: number = 0;
+    this.route.paramMap.subscribe(params => {
+    id = + params.get('id');
+    });
+
+    this.orderService.getOneOrder(id).subscribe(order => {
+      this.oneOrder = order
+      console.log(this.oneOrder);
+      this.cartItems = this.oneOrder.cartItems;
+      console.log(this.cartItems);
+    });
+    
   }
 
   goBack(): void {

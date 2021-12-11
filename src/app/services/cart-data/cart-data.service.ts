@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MoneyService } from 'bethel-bakery-frontend/src/app/services/money/money.service';
+import { MoneyService } from '../money/money.service'; 
 import { Observable } from 'rxjs';
 import { CartItem } from 'src/app/models/cart-item/cart-item';
 import { Product } from 'src/app/models/product/product';
@@ -41,9 +41,9 @@ export class CartDataService {
     
     //if the product does exist in array than increase quantity
     if(foundProduct == true){
-       
+      let cartSubTotal: number = this.cartItems[productIndex].subTotal;  
       this.cartItems[productIndex].productQuantity++;
-      this.cartItems[productIndex].subTotal = this.moneyService.calculateSubTotal       (this.cartItems[productIndex]);
+      this.cartItems[productIndex].subTotal = cartSubTotal + this.cartItems[productIndex].product.price;
       
     }
 

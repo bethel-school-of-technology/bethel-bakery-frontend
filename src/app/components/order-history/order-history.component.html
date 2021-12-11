@@ -30,7 +30,7 @@
     <tr *ngFor="let order of orders">
       <td>{{order.firstName}} {{order.lastName}}</td>
       <td>{{order.dateTimeStamp}}</td>
-      <td><a routerLink="/order-details/{{order.id}}">View</a></td>
+      <td><a [routerLink]="['/order-details', order.id]">View</a></td>
     </tr>
   </table>
 </div>

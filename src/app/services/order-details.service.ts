@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Order } from '../models/order/order';
 import { AuthService } from './auth/auth.service';
 import { CartItem } from '../models/cart-item/cart-item';
-import { MoneyService } from 'bethel-bakery-frontend/src/app/services/money/money.service';
+import { MoneyService } from './money/money.service';
 
 const httpOptions = {
   headers: new HttpHeaders({'content-type ': 'application/json'})
@@ -42,7 +42,11 @@ export class OrderDetailsService {
   }
 
   getOneOrder(id: number):Observable<Order>{
-    return this.http.get<Order>(`${this.orderDetailsUrl}/${id}`);
+    let token = localStorage.getItem('token');
+    let headers = new HttpHeaders().set("Authorization", "Bearer " + token);
+    const httpOptions = {headers};
+
+    return this.http.get<Order>(`${this.orderUrl}/${id}`, httpOptions);
   }
 
 
@@ -116,5 +120,15 @@ export class OrderDetailsService {
     localStorage.removeItem("cartItems");
     localStorage.setItem("cartItems", JSON.stringify(newCartItems));
   }
-    
+  
+  //Gets the array of cartitems from order.cartItems
+  getCartItems(order:Order): CartItem[] {
+    let cartItems: CartItem[] = [];
+
+    for(let i: number = 0; i < order.cartItems.length; i++) {
+      cartItems.push(order.cartItems[i]);
+    }
+
+    return cartItems;
+  }
 }

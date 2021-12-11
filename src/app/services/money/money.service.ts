@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CartItem } from 'src/app/models/cart-item/cart-item';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +23,11 @@ export class MoneyService {
 
   //add up an array of numbers and returns the sum
   //Make sure money is in correct format(28.89 should be 2889)
-  public calculateSubTotal(numbersToBeAdded: number[]): number {
-    
+  public calculateSubTotal(cartItem: CartItem[]): number {
+    let numbersToBeAdded: number[] = [];
+    for(let i: number = 0; i < cartItem.length; i++){
+      numbersToBeAdded[i] = cartItem[i].subTotal;
+    }
     return numbersToBeAdded.reduce(function(a,b){return a + b;}); 
    
   }
