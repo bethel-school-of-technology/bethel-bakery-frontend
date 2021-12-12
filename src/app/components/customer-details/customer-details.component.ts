@@ -11,9 +11,9 @@ import { OrderDetailsService } from '../../services/order-details.service';
   styleUrls: ['./customer-details.component.css']
 })
 export class CustomerDetailsComponent implements OnInit {
-
   newOrder: Order = new Order();
   url = 'loalhost:8080/order';
+  nothingInCart: boolean = true;
 
   constructor(private router: Router, private cartDataService: CartDataService, private http: HttpClient, private orderDetailsService: OrderDetailsService) { }
 
@@ -21,33 +21,24 @@ export class CustomerDetailsComponent implements OnInit {
   ngOnInit(): void {}
 
   submitOrder() {
+
     this.orderDetailsService.submitOrder(this.newOrder);  
   }
 
+    this.nothingInCart = this.orderDetailsService.checkNothingInCart();
+
+    if(!this.nothingInCart){
+      this.orderDetailsService.submitOrder(this.newOrder);  
+      this.router.navigate(['/confirmation']);
+    } else {
+      alert("There are no Items In your cart!")
+    }
+    
+  }
+
   
+   }
 
-  // getItems(product: Product): void {
-   
-  // //  what is the URL for posting data to the Db?
-  //   if (localStorage.getItem('cartItems') != null) {
-  //     let cartItems: CartItem = JSON.parse(localStorage.getItem('cartItems'));
-  //    }
-  //   }
-  //   addOrder(){
-  //     this.orderDetailsService.newOrder(this.newOrder).subscribe(order =>{
-  //       console.log(order);
-
-  //     })
-  //   }
-
-  //  addOrder = (order:Order) => {
-  //    this.orderDetailsService.newOrder(Order).subscribe(response => {
-      
-  //     this
-
-  //       // adding to the Db
-  //    } )
-}
   
   
 

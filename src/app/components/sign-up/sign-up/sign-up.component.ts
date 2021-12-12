@@ -12,6 +12,7 @@ export class SignUpComponent implements OnInit {
 
   user: User = new User;
   retypePassword: string = ""; 
+  passwordMatches: boolean = true;
   isinvalid: boolean = false;
   
   constructor(private signUpService: SignUpService, private router: Router) { }
@@ -20,14 +21,14 @@ export class SignUpComponent implements OnInit {
   }
 
   submit() {
-    if(this.validate()){
+    if(this.validatePasswordMatch()){
       this.signUpService.addNewUser(this.user).subscribe( response => {console.log(response)},
-      error => {this.isinvalid = true}
+      error => {alert("The username is already taken");}
       
       );
       this.router.navigate(['']);
     }else {
-      this.isinvalid = true;
+      this.passwordMatches = false;
     }
     
   }
@@ -36,14 +37,13 @@ export class SignUpComponent implements OnInit {
     this.router.navigate(['']);  
   }
 
-  validate(): boolean {
-    let isValid: boolean = false;
-    if(this.user.userName != "" && this.user.userFirstName != "" && this.user.userLastName && this.user.userPassword != ""){
-      if(this.user.userPassword === this.retypePassword){
-        isValid = true;
-      }
-    } 
-
-    return isValid;
+  validatePasswordMatch(): boolean {
+    
+    if(this.user.userPassword === this.retypePassword){
+      return true;
+    } else {
+      return false;
+    }
+     
   }
 }
