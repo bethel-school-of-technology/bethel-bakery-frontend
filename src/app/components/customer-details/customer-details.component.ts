@@ -4,10 +4,6 @@ import { Router } from '@angular/router';
 import { Order } from '../../models/order/order';
 import { CartDataService } from '../../services/cart-data/cart-data.service';
 import { OrderDetailsService } from '../../services/order-details.service';
-import { Product } from '../../models/product/product';
-import { CartItem } from '../../models/cart-item/cart-item';
-
-
 
 @Component({
   selector: 'app-customer-details',
@@ -25,6 +21,10 @@ export class CustomerDetailsComponent implements OnInit {
   ngOnInit(): void {}
 
   submitOrder() {
+
+    this.orderDetailsService.submitOrder(this.newOrder);  
+  }
+
     this.nothingInCart = this.orderDetailsService.checkNothingInCart();
 
     if(!this.nothingInCart){
@@ -38,6 +38,7 @@ export class CustomerDetailsComponent implements OnInit {
 
   
    }
+
   
   
 
