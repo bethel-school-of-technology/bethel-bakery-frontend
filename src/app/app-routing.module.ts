@@ -7,14 +7,20 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
 import { SignUpComponent } from './components/sign-up/sign-up/sign-up.component';
+import { LandingPageComponent } from './components/landing-page/landing-page/landing-page.component';
 
 
 
 const routes: Routes = [
+  
   {
     path: '', 
-    redirectTo: 'login',
+    redirectTo: 'landingPage',
     pathMatch: 'full'
+  },
+  {
+    path: 'landingPage',
+    component: LandingPageComponent
   },
   {
     path: 'cart',
