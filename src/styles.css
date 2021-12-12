@@ -176,6 +176,9 @@ h6 {
   color: var(--primary-color) !important;
 }
 
+.text-primary {
+  color: var(--primary-color);
+}
 /* Inner page grid container */
 .page-container {
   display: grid;
