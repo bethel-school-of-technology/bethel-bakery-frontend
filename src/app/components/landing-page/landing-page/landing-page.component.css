@@ -1,0 +1,61 @@
+:root {
+  --primary-color: #c72727;
+  --secondary-color: #f99500;
+  --light-color: #f3f3f3;
+  --dark-color: #333;
+  --max-width: 1100px;
+}
+
+#showcase {
+  color: #fff;
+  background: #333;
+  padding: 2rem;
+  position: relative;
+}
+
+#showcase:before {
+  content: "";
+  background: url("https://lh3.googleusercontent.com/3EadiVH3ge289gROD6-9SSrvVSTr7oabPRsMiEhF6S1WuyKDXZuv5S8BvdhAmOUIN-Q6jzPYFoIdpq3GHlc6kUaz-PRRSCQ53NQ6ppyRgZi0DPBZkioAwxMMxlHFoba1qFH6Vii6=w2400")
+    no-repeat center center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+#showcase .showcase-container {
+  display: grid;
+  /* grid-template-columns: repeat(2, 1fr); */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#showcase .showcase-content {
+  z-index: 1;
+}
+
+#showcase .showcase-content h1 {
+  text-align: center;
+}
+
+#showcase .showcase-content p {
+  /* margin-bottom: 1.5rem; */
+  text-align: center;
+}
+
+#showcase .showcase-content .content {
+  display: flex;
+  flex-direction: column;
+}
+#showcase .showcase-content div {
+  display: flex;
+  justify-content: space-around;
+}
+#showcase .showcase-content a {
+  width: 10rem;
+  text-align: center;
+  margin-top: 2rem;
+}
