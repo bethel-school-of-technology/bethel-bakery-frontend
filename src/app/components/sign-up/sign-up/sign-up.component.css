@@ -1,0 +1,32 @@
+:root {
+  --primary-color: #c72727;
+  --secondary-color: #f99500;
+  --light-color: #f3f3f3;
+  --dark-color: #333;
+  --gray-color: #cdcdcd;
+  --max-width: 1100px;
+}
+
+#sign-up {
+  background: #cdcdcd;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-button {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  margin-top: 1rem;
+}

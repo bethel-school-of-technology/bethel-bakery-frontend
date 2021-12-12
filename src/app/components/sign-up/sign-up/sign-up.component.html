@@ -1,45 +1,69 @@
-<h1>Sign Up Form</h1>
-<div *ngIf="!passwordMatches">The password does not match!</div>
-<form>
-    <div class="form-group">
-        <label for="userName">Username</label>
-        <input [(ngModel)]="user.userName" #userName="ngModel" type="text" name="userName" required>
-        <div class="alert" *ngIf="userName.touched && !userName.valid">
-            Username is required.
-        </div>
+<div id="sign-up">
+    <div class="container center">
+        <form class="flex">
+            <div>
+                <h1>Sign Up Form</h1>
+                <div *ngIf="!passwordMatches">
+                    The password does not match!
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="userName">Username</label>
+                <input class="form-input" [(ngModel)]="user.userName" #userName="ngModel" type="text" name="userName"
+                    required>
+                <div class="alert" *ngIf="userName.touched && !userName.valid">
+                    Username is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-input" [(ngModel)]="user.userPassword" type="password" #password="ngModel"
+                    name="password" required minlength="8">
+                <div class="alert" *ngIf="password.touched && !password.valid">
+                    <div *ngIf="password.errors.required">
+                        password is required.
+                    </div>
+                    <div *ngIf="password.errors.minlength">
+                        Password must be at least 8 character long.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="rePassword">Confirm password</label>
+                <input class="form-input" [(ngModel)]="retypePassword" type="password" #rePassword="ngModel"
+                    name="rePassword" required minlength="8">
+                <div class="alert" *ngIf="rePassword.touched && !rePassword.valid">
+                    <div *ngIf="rePassword.errors.required">
+                        Retype the password is required.
+                    </div>
+                    <div *ngIf="rePassword.errors.minlength">
+                        The password must be at least 8 character long.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input class="form-input" [(ngModel)]="user.userFirstName" type="text" #firstName="ngModel"
+                    name="firstName" required>
+                <div class="alert" *ngIf="firstName.touched && !firstName.valid">
+                    First name is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input class="form-input" [(ngModel)]="user.userLastName" type="text" #lastName="ngModel"
+                    name="lastName" required>
+                <div class="alert" *ngIf="lastName.touched && !lastName.valid">
+                    Last name is required.
+                </div>
+            </div>
+            <div class="flex-button">
+                <button class="form-button btn-primary btn:hover" (click)="submit()">Submit</button>
+                <button class="form-button btn-primary btn:hover" (click)="goBack()">Go Back</button>
+            </div>
+
+        </form>
     </div>
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input [(ngModel)]="user.userPassword" type="password" #password="ngModel" name="password" required
-            minlength="8">
-        <div class="alert" *ngIf="password.touched && !password.valid">
-            <div *ngIf="password.errors.required">password is required.</div>
-            <div *ngIf="password.errors.minlength">Password must be at least 8 character long.</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="rePassword">Retype Password</label>
-        <input [(ngModel)]="retypePassword" type="password" #rePassword="ngModel" name="rePassword" required
-            minlength="8">
-        <div class="alert" *ngIf="rePassword.touched && !rePassword.valid">
-            <div *ngIf="rePassword.errors.required">Retype the password is required.</div>
-            <div *ngIf="rePassword.errors.minlength">The password must be at least 8 character long.</div>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input [(ngModel)]="user.userFirstName" type="text" #firstName="ngModel" name="firstName" required>
-        <div class="alert" *ngIf="firstName.touched && !firstName.valid">
-            First name is required.
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="lastName">Last Name</label>
-        <input [(ngModel)]="user.userLastName" type="text" #lastName="ngModel" name="lastName" required>
-        <div class="alert" *ngIf="lastName.touched && !lastName.valid">
-            Last name is required.
-        </div>
-    </div>
-    <button (click)="submit()">Submit</button>
-    <button (click)="goBack()">Go Back</button>
-</form>
+
+</div>
