@@ -1,18 +1,24 @@
 <nav>
     <div class="container flex">
-        <div class="cart">
-            <ul>
-                <li *ngIf="isLogedIn()"><i class="fas fa-shopping-cart fa-3x"></i></li>
-                <li *ngIf="isLogedIn()"><a routerLink="/cart">Checkout</a></li>
-            </ul>
+        <div class="logo">
+            <h1>Bethel<span class="text-primary">Bakery</span> </h1>
         </div>
-        <div class="links">
-            <ul>
-                <li *ngIf="isLogedIn()"><a routerLink="/shop">Shop</a></li>
-                <li *ngIf="isLogedIn() && isAdmin()"><a routerLink="/order-history">Order History</a></li>
-                <li *ngIf="isLogedIn()"><a routerLink="/login" (click)="logOut()">Log Out</a></li>
-            </ul>
+        <div class="flex">
+            <div class="links">
+                <ul>
+                    <li *ngIf="isLogedIn()"><a routerLink="/shop">Shop</a></li>
+                    <li *ngIf="isLogedIn() && isAdmin()"><a routerLink="/order-history">Order History</a></li>
+                    <li *ngIf="isLogedIn()"><a routerLink="/login" (click)="logOut()">Log Out</a></li>
+                </ul>
+            </div>
+            <div class="cart">
+                <ul>
+                    <li *ngIf="isLogedIn()"><i class="fas fa-shopping-cart fa-3x"></i></li>
+                    <li *ngIf="isLogedIn()"><a routerLink="/cart">Checkout</a></li>
+                </ul>
+            </div>
         </div>
+
     </div>
 
     <!-- <button (click)="getQtyTotal()"></button> -->
