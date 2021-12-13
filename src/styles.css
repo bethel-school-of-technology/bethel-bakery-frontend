@@ -111,7 +111,8 @@ h6 {
 
 .card {
   background: #fff;
-  padding: 1rem;
+  width: 21rem;
+  padding: 0 1rem 1rem 1rem;
 }
 
 .bg-dark {
