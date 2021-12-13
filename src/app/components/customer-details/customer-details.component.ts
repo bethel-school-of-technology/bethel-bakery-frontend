@@ -23,7 +23,7 @@ export class CustomerDetailsComponent implements OnInit {
   submitOrder() {
 
     this.orderDetailsService.submitOrder(this.newOrder);  
-  }
+  
 
     this.nothingInCart = this.orderDetailsService.checkNothingInCart();
 
@@ -33,11 +33,11 @@ export class CustomerDetailsComponent implements OnInit {
     } else {
       alert("There are no Items In your cart!")
     }
-    
   }
+}
 
   
-   }
+  
 
   
   
