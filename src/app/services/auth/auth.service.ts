@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { AuthResponse } from 'src/app/models/auth-response';
 import { Credentials } from 'src/app/models/credentials';
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { TokenPayload } from 'src/app/models/tokenPayload';
+import { tap, delay } from 'rxjs/operators'
 
 
 @Injectable({
@@ -13,6 +14,11 @@ import { TokenPayload } from 'src/app/models/tokenPayload';
 export class AuthService {
 
   url: string = "http://localhost:8080/authenticate";
+
+  isLoggedin = false;
+
+   // store the URL so we can redirect after logging in
+   redirectUrl: string | null = null;
 
   constructor(private http: HttpClient) { }
 
@@ -60,6 +66,17 @@ export class AuthService {
     }else {
       return false;
     }
+  }
+
+  login(): Observable<boolean> {
+    return of(true).pipe(
+      delay(1000),
+      tap(() => this.isLoggedin = true)
+    );
+  }
+
+  logout(): void {
+    this.isLoggedin = false;
   }
 
 
