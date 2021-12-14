@@ -15,7 +15,8 @@ export class AuthService {
 
   url: string = "http://localhost:8080/authenticate";
 
-  isLoggedin = false;
+
+  // isLoggedin = false;
 
    // store the URL so we can redirect after logging in
    redirectUrl: string | null = null;
@@ -68,16 +69,16 @@ export class AuthService {
     }
   }
 
-  login(): Observable<boolean> {
-    return of(true).pipe(
-      delay(1000),
-      tap(() => this.isLoggedin = true)
-    );
-  }
+  // login(): Observable<boolean> {
+  //   return of(true).pipe(
+  //     delay(1000),
+  //     tap(() => this.isLoggedin = true)
+  //   );
+  // }
 
-  logout(): void {
-    this.isLoggedin = false;
-  }
+  // logout(): void {
+  //   this.isLoggedin = false;
+  // }
 
 
 }

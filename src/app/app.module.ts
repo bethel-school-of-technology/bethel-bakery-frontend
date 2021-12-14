@@ -16,6 +16,7 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
 import { SignUpComponent } from './components/sign-up/sign-up/sign-up.component';
 import { LandingPageComponent } from './components/landing-page/landing-page/landing-page.component';
+import { NoAccessComponent } from './components/no-access/no-access.component';
 
 
 
@@ -36,7 +37,8 @@ import { LandingPageComponent } from './components/landing-page/landing-page/lan
     ConfirmationComponent,
     OrderDetailsComponent,
     SignUpComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    NoAccessComponent
     
     
 

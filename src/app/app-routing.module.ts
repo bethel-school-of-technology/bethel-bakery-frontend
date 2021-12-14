@@ -9,6 +9,8 @@ import { OrderDetailsComponent } from './components/order-details/order-details.
 import { SignUpComponent } from './components/sign-up/sign-up/sign-up.component';
 import { LandingPageComponent } from './components/landing-page/landing-page/landing-page.component';
 import { AuthGuard } from './auth/auth.guard';
+import { AdminAuthGuard } from './auth/admin-auth.guard';
+import { NoAccessComponent } from './components/no-access/no-access.component';
 
 
 
@@ -25,33 +27,40 @@ const routes: Routes = [
   },
   {
     path: 'cart',
-    component: CheckoutComponent
+    component: CheckoutComponent,
+    canActivate: [AuthGuard]
   },
   { path: 'login',
     component: LoginComponent
   },
   {
     path: 'shop',
-    component: ProductCardsComponent
+    component: ProductCardsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'order-history',
     component: OrderHistoryComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, AdminAuthGuard]
   },
     // ConfirmationComponent --> checkout
   {
     path: 'confirmation',
-    component: ConfirmationComponent
+    component: ConfirmationComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'order-details/:id',
     component: OrderDetailsComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, AdminAuthGuard]
   },
   {
     path: 'sign-up',
     component: SignUpComponent
+  },
+  {
+    path: 'no-access',
+    component: NoAccessComponent
   }
 ];
 
