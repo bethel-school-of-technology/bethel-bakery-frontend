@@ -5,6 +5,7 @@ import { Order } from '../models/order/order';
 import { AuthService } from './auth/auth.service';
 import { CartItem } from '../models/cart-item/cart-item';
 import { MoneyService } from './money/money.service';
+import { Router } from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({'content-type ': 'application/json'})
@@ -21,7 +22,11 @@ export class OrderDetailsService {
   orderDetailsUrl: string = "http://localhost:8080/order-details"
   orderUrl: string = "http://localhost:8080/order"
 
-  constructor(private http:HttpClient, private authService: AuthService, private moneyService: MoneyService) {}
+  constructor(
+    private http:HttpClient, 
+    private authService: AuthService, 
+    private moneyService: MoneyService,
+    private router: Router) {}
 
   //Post request for new Order.
   addNewOrder(order: Order):Observable<Order>{
@@ -52,6 +57,7 @@ export class OrderDetailsService {
 
   //Submits the order to the backend
   submitOrder(order: Order) {
+    
     let cartItems: CartItem[] = this.getCartItemsFromLocalStorage();
     
     order = this.addCartItemsToOrder(cartItems, order);
@@ -63,6 +69,8 @@ export class OrderDetailsService {
     this.addNewOrder(order).subscribe(response => {});
     
     this.deleteCartItemsByUserFromLocalStorage(order.user.userName);
+
+    this.router.navigate(['/confirmation']);
   }
   
   //Gets the cartItems from local storage by user.

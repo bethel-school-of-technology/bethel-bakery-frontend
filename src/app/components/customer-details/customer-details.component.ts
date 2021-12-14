@@ -21,6 +21,7 @@ export class CustomerDetailsComponent implements OnInit {
   ngOnInit(): void {}
 
   submitOrder() {
+    console.log("SubmitOrder() is working");
     this.orderDetailsService.submitOrder(this.newOrder);  
   }
   
