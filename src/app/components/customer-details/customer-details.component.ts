@@ -24,7 +24,7 @@ export class CustomerDetailsComponent implements OnInit {
     console.log("SubmitOrder() is working");
     this.orderDetailsService.submitOrder(this.newOrder);  
   }
-
+  
   checkToSeeIfNothingInCart(){
     this.nothingInCart = this.orderDetailsService.checkNothingInCart();
 
@@ -35,13 +35,17 @@ export class CustomerDetailsComponent implements OnInit {
       alert("There are no Items In your cart!")
     }
   }
-    
-    
-}
+}  
+   
+
 
   
    
   
   
 
+
+function checkToSeeIfNothingInCart() {
+  throw new Error('Function not implemented.');
+}
 
