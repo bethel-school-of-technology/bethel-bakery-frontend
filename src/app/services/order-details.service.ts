@@ -69,7 +69,7 @@ export class OrderDetailsService {
     this.addNewOrder(order).subscribe(response => {});
     
     this.deleteCartItemsByUserFromLocalStorage(order.user.userName);
-
+    
     this.router.navigate(['/confirmation']);
   }
   
