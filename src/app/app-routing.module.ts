@@ -10,6 +10,7 @@ import { SignUpComponent } from './components/sign-up/sign-up/sign-up.component'
 import { LandingPageComponent } from './components/landing-page/landing-page/landing-page.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AdminAuthGuard } from './auth/admin-auth.guard';
+import { NoAccessComponent } from './components/no-access/no-access.component';
 
 
 
@@ -56,6 +57,10 @@ const routes: Routes = [
   {
     path: 'sign-up',
     component: SignUpComponent
+  },
+  {
+    path: 'no-access',
+    component: NoAccessComponent
   }
 ];
 
