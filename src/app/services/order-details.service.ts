@@ -66,6 +66,8 @@ export class OrderDetailsService {
 
     order = this.setUser(order)
 
+    console.log(order);
+
     this.addNewOrder(order).subscribe(response => {});
     
     this.deleteCartItemsByUserFromLocalStorage(order.user.userName);
