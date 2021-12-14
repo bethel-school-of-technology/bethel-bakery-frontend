@@ -1,15 +1,28 @@
-<div class="login">
-    <h3>Login</h3>
-    <h3 *ngIf="invalidLogin">Invalid username and/or password.</h3>
-    <form>
-        <div>
-            <label for="Username"></label>
-            <input name="Username" [(ngModel)]="credentials.userName" type="email" placeholder="Username">
-        </div>
-        <div>
-            <label for="Password"></label>
-            <input name="Password" [(ngModel)]="credentials.userPassword" type="password" placeholder="Password">
-        </div>
-        <button (click)="logIn()">Login</button>
-        <button (click)="goToSignUp()">Sign Up</button>
-    </form>
+<div id="login">
+    <div class="container flex-container">
+        <form class="flex">
+            <div id="heading">
+                <h1>Login</h1>
+                <h3 *ngIf="invalidLogin">Invalid username and/or password.</h3>
+            </div>
+            <div>
+                <div class="form-container"></div>
+                <label for="Username"></label>
+                <input class="form-input" name="Username" [(ngModel)]="credentials.userName" type="email"
+                    placeholder="Username">
+            </div>
+            <div class="form-container">
+                <label for="Password"></label>
+                <input class="form-input" name="Password" [(ngModel)]="credentials.userPassword" type="password"
+                    placeholder="Password">
+            </div>
+            <div class="flex-button">
+                <button class="form-button btn-primary btn:hover" (click)="logIn()">Login</button>
+                <button class="form-button btn-primary btn:hover" (click)="goToSignUp()">Sign Up</button>
+            </div>
+
+
+
+        </form>
+    </div>
+</div>

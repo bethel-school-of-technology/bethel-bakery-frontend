@@ -21,10 +21,10 @@ export class CustomerDetailsComponent implements OnInit {
   ngOnInit(): void {}
 
   submitOrder() {
-
     this.orderDetailsService.submitOrder(this.newOrder);  
   
 
+  checkToSeeIfNothingInCart(){
     this.nothingInCart = this.orderDetailsService.checkNothingInCart();
 
     if(!this.nothingInCart){
@@ -34,12 +34,17 @@ export class CustomerDetailsComponent implements OnInit {
       alert("There are no Items In your cart!")
     }
   }
+    
+  } 
 }
 
   
+   
+  
   
 
-  
-  
 
+function checkToSeeIfNothingInCart() {
+  throw new Error('Function not implemented.');
+}
 

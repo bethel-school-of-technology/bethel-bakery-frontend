@@ -8,6 +8,7 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
 import { OrderDetailsComponent } from './components/order-details/order-details.component';
 import { SignUpComponent } from './components/sign-up/sign-up/sign-up.component';
 import { LandingPageComponent } from './components/landing-page/landing-page/landing-page.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 
@@ -35,7 +36,8 @@ const routes: Routes = [
   },
   {
     path: 'order-history',
-    component: OrderHistoryComponent
+    component: OrderHistoryComponent,
+    canActivate: [AuthGuard],
   },
     // ConfirmationComponent --> checkout
   {
@@ -44,7 +46,8 @@ const routes: Routes = [
   },
   {
     path: 'order-details/:id',
-    component: OrderDetailsComponent
+    component: OrderDetailsComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'sign-up',

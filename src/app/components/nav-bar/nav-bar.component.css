@@ -1,30 +1,41 @@
+:root {
+  --primary-color: #c72727;
+  --secondary-color: #f99500;
+  --light-color: #f3f3f3;
+  --dark-color: #333;
+  --max-width: 1100px;
+}
+
 nav {
   padding: 20px;
   margin: auto;
   max-width: 2000px;
-  background-color: var(--primary-color);
+  background-color: var(--light-color);
   color: var(--light-color);
-  
 }
 
-.flex{
+.logo h1 {
+  color: var(--dark-color);
+  font-size: 2rem;
+}
+.flex {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
 }
 
-ul{
+ul {
   list-style-type: none;
 }
-
-
 
 .checkout {
   margin: 0;
   padding: 0;
 }
 
+i {
+  color: var(--dark-color);
+}
 .links {
   margin: 0;
   padding: 0;
