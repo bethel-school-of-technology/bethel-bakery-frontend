@@ -19,18 +19,19 @@
     </div>
  -->
 
-
-<div class="container">
-  <table>
-    <tr>
-      <th>Customer Name</th>
-      <th>Order Date</th>
-      <th></th>
-    </tr>
-    <tr *ngFor="let order of orders">
-      <td>{{order.firstName}} {{order.lastName}}</td>
-      <td>{{order.dateTimeStamp}}</td>
-      <td><a [routerLink]="['/order-details', order.id]">View</a></td>
-    </tr>
-  </table>
+<div class="bg-gray">
+  <div class="container bg-gray">
+    <table>
+      <tr>
+        <th>Customer Name</th>
+        <th>Order Date</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let order of orders">
+        <td>{{order.firstName}} {{order.lastName}}</td>
+        <td>{{order.dateTimeStamp}}</td>
+        <td><a [routerLink]="['/order-details', order.id]">View</a></td>
+      </tr>
+    </table>
+  </div>
 </div>

@@ -1,5 +1,5 @@
-<h3>Order Summary</h3>
- <!-- <br>
+<h1>Order Summary</h1>
+<!-- <br>
 <div id="cartDetailsContainer" *ngFor="let item of items">
         <ul>Name: </ul>
         <ul>{{item.product.name}}</ul>
@@ -14,14 +14,26 @@
     <h3 id="cartDetailsPrice">$0.00</h3>
     <button id="deleteCartItemOne">X</button>
 </div> -->
-<div>
+<div id="cart-summary">
+
     <table>
+        <tr>
+            <th>Item</th>
+            <th>Qty.</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
         <tr *ngFor="let item of items">
             <td>{{item.product.name}}</td>
-            <td>{{item.productQuantity}}</td>
-            <td>{{item.subTotal/100}}</td>
-            <td><button (click) = "delete(item)">Delete</button></td>
-            
+            <td id="qty">{{item.productQuantity}}</td>
+            <td>${{item.subTotal/100}}</td>
+            <td><button class="btn-primary btn" (click)="delete(item)">Delete</button></td>
         </tr>
     </table>
-</div> 
+
+    <div>
+        <h3>Sub Total: ${{subTotal}}</h3>
+        <h3>Tax: ${{tax}}</h3>
+        <h3>Total: ${{total}}</h3>
+    </div>
+</div>

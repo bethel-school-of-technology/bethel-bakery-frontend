@@ -1,20 +1,18 @@
-aside {
-    display: flex;
-    align-content: flex-start;
+table {
+  width: 50rem;
+  border-collapse: collapse;
 }
-p {
-    display: flex;
-    justify-content: right;
-    font-size: 3ch;
+
+th {
+  text-align: left;
+  border-bottom: 1px solid var(--dark-color);
 }
-ul {
-    font-size: 3ch;
+
+td {
+  padding: 1rem 0 1rem 0;
+  border-bottom: 1px solid var(--dark-color);
 }
-#cartDetailsContainer {
-    display: flex;
-    justify-content: right;
-  }
-  button {
-      margin: 3px 6px 3px 6px;
-      padding: 0px 3px 0px 3px;
-  }
+
+h3 {
+  margin-top: 1.5rem;
+}

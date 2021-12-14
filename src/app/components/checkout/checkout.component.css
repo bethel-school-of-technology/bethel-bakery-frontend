@@ -1,0 +1,6 @@
+.flex-container {
+  padding-top: 3rem;
+  background: #cdcdcd;
+  display: flex;
+  justify-content: space-around;
+}

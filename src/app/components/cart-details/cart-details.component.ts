@@ -2,6 +2,7 @@ import { Component, Injectable, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/models/cart-item/cart-item';
 import { Product } from 'src/app/models/product/product';
 import { CartdetailService } from 'src/app/services/cartdetail.service';
+import { MoneyService } from 'src/app/services/money/money.service';
 import { OrderDetailsService } from 'src/app/services/order-details.service';
 
 @Component({
@@ -15,6 +16,9 @@ export class CartDetailsComponent implements OnInit {
   isCartEmpty: boolean = false; 
   newCartItemOne = new CartItem();
   newCartItemTwo = new CartItem();
+  subTotal:number = 10.56;
+  total:number = 12.78;
+  tax: number = 3.89;
 //I am working on an array complete with if statement and loop to check contents of local storage and load all objects. Due to the way localstorage works with keys...
 //It appears that all keys will need to be saved into variables, and stored into an array, and then I can run a loop on the array to load the whole cart.
 
@@ -27,7 +31,11 @@ export class CartDetailsComponent implements OnInit {
 
 //Constructor is used to build items into storage for later retreaval. You will want to comment this out this storage function, or inject your own object.
 //If injecting your own object, you can leave the rest of the code the same.                                      
-  constructor(private orderDetailsService: OrderDetailsService, private cartDetailService: CartdetailService) {
+  constructor(
+    private orderDetailsService: OrderDetailsService, 
+    private cartDetailService: CartdetailService
+
+    ) {
    
         //For testing...can use to proof the array works and local storage works.
     // localStorage.setItem("item1",JSON.stringify(this.newCartItemTwo) ) 
@@ -48,6 +56,9 @@ export class CartDetailsComponent implements OnInit {
    if(!this.orderDetailsService.checkNothingInCart()){
     this.items = this.orderDetailsService.getCartItemsFromLocalStorage();
    }
+
+
+
    
 
 
