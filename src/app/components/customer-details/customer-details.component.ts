@@ -22,8 +22,8 @@ export class CustomerDetailsComponent implements OnInit {
 
   submitOrder() {
     this.orderDetailsService.submitOrder(this.newOrder);  
+  }
   
-
   checkToSeeIfNothingInCart(){
     this.nothingInCart = this.orderDetailsService.checkNothingInCart();
 
@@ -34,9 +34,9 @@ export class CustomerDetailsComponent implements OnInit {
       alert("There are no Items In your cart!")
     }
   }
-    
-  } 
-}
+}  
+   
+
 
   
    
