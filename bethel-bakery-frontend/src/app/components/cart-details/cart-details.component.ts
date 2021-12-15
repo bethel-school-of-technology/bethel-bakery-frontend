@@ -71,10 +71,14 @@ export class CartDetailsComponent implements OnInit {
     localStorage.clear()
   }
   
-  deleteCartItem() {
-    this.items.splice(0); //Visually Appealling...
-    localStorage.removeItem("item1");
-    }
+  deleteCartItem(id) {
+    // TODO 
+    // fetch the items from localstorage.
+    // loop and filter out the item with id = id
+    // put back the new list of items in the localstorage
+
+    // if the update process works, only then remove the UI item.
+  }
 //Workimg on delete button still
   /*deleteCartItemClick(newCartItemOne): CartItem {
 document.getElementById("deleteCartItemOne").onclick(deleteCartItemFromLocalStorage())
