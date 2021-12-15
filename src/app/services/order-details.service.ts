@@ -105,7 +105,7 @@ export class OrderDetailsService {
       
     order.subTotal = numbersToBeAdded.reduce(function(a,b){return a + b});
 
-    order.total = this.moneyService.calculateTax(order.subTotal);
+    order.total = this.moneyService.calculateTaxTotal(order.subTotal);
 
     return order;
   }

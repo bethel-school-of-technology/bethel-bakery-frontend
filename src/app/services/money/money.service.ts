@@ -34,7 +34,13 @@ export class MoneyService {
 
   //calculate the a number befor tax. 
   //Make sure money is in correct format(28.89 should be 2889)
-  public calculateTax(amount: number): number {
+  public calculateTaxTotal(amount: number): number {
     return amount + (amount * this.tax)
+  }
+
+  public calculateTax(amount: number): number {
+    amount = amount * this.tax
+    amount = Math.round((amount + Number.EPSILON) * 100) / 100;
+    return amount;
   }
 }

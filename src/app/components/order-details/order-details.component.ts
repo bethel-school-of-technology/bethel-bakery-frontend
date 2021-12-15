@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { OrderDetailsService } from '../../services/order-details.service';
 import { Order } from '../../models/order/order';
 import { CartItem } from 'src/app/models/cart-item/cart-item';
+import { MoneyService } from 'src/app/services/money/money.service';
 
 
 @Component({
@@ -17,17 +18,18 @@ export class OrderDetailsComponent implements OnInit {
   id : number = 0;
   oneOrder: Order = new Order;
   cartItems: CartItem[];
+  tax:number = 0;
 
   
   constructor(
     private orderService: OrderDetailsService,
     private location: Location,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private moneyService: MoneyService
     ) { }
 
   ngOnInit(): void {
     this.getOneOrder();
-    
   }
 
   getOneOrder (): void {
@@ -38,9 +40,8 @@ export class OrderDetailsComponent implements OnInit {
 
     this.orderService.getOneOrder(id).subscribe(order => {
       this.oneOrder = order
-      console.log(this.oneOrder);
       this.cartItems = this.oneOrder.cartItems;
-      console.log(this.cartItems);
+      this.tax = this.moneyService.calculateTax(this.oneOrder.subTotal);
     });
     
   }
