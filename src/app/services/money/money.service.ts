@@ -32,6 +32,10 @@ export class MoneyService {
    
   }
 
+  public calculateSubTotalFromSingleCartItem(cartItem: CartItem): number {
+    return cartItem.product.price * cartItem.productQuantity;
+  }
+
   //calculate the a number befor tax. 
   //Make sure money is in correct format(28.89 should be 2889)
   public calculateTaxTotal(amount: number): number {
@@ -43,4 +47,6 @@ export class MoneyService {
     amount = Math.round((amount + Number.EPSILON) * 100) / 100;
     return amount;
   }
+
+
 }

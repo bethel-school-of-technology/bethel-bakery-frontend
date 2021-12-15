@@ -16,9 +16,9 @@ export class CartDetailsComponent implements OnInit {
   isCartEmpty: boolean = false; 
   newCartItemOne = new CartItem();
   newCartItemTwo = new CartItem();
-  subTotal:number = 10.56;
-  total:number = 12.78;
-  tax: number = 3.89;
+  subTotal:number = 0;
+  total:number = 0;
+  tax: number = 0;
 //I am working on an array complete with if statement and loop to check contents of local storage and load all objects. Due to the way localstorage works with keys...
 //It appears that all keys will need to be saved into variables, and stored into an array, and then I can run a loop on the array to load the whole cart.
 
@@ -33,7 +33,8 @@ export class CartDetailsComponent implements OnInit {
 //If injecting your own object, you can leave the rest of the code the same.                                      
   constructor(
     private orderDetailsService: OrderDetailsService, 
-    private cartDetailService: CartdetailService
+    private cartDetailService: CartdetailService,
+    private moneyService: MoneyService
 
     ) {
    
@@ -57,7 +58,10 @@ export class CartDetailsComponent implements OnInit {
     this.items = this.orderDetailsService.getCartItemsFromLocalStorage();
    }
 
+   this.calculateAllTotal();
 
+
+ 
 
    
 
@@ -75,8 +79,23 @@ export class CartDetailsComponent implements OnInit {
     // console.log(this.items);
   }
 
+
+  calculateAllTotal(): void {
+    if (this.items.length > 0){
+      this.subTotal = this.moneyService.calculateSubTotal(this.items);
+      this.tax = this.moneyService.calculateTax(this.subTotal);
+      this.total = this.moneyService.calculateTaxTotal(this.subTotal);
+    }
+    else {
+      this.subTotal = 0;
+      this.tax = 0;
+      this.total = 0;
+    }
+  }
+
   delete(item): void{
    this.cartDetailService.delete(item,this.items);
+   this.calculateAllTotal();
   }
   //Set key to the actual key in order for this to !null. newCartItemOne should now have JSON properties.
   getCartItem(newCartItemOne): CartItem {

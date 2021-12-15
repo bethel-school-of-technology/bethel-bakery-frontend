@@ -32,8 +32,8 @@
     </table>
 
     <div>
-        <h3>Sub Total: ${{subTotal}}</h3>
-        <h3>Tax: ${{tax}}</h3>
-        <h3>Total: ${{total}}</h3>
+        <h3>Sub Total: {{subTotal/100|currency}}</h3>
+        <h3>Tax: {{tax/100|currency}}</h3>
+        <h3>Total: {{total/100|currency}}</h3>
     </div>
 </div>
