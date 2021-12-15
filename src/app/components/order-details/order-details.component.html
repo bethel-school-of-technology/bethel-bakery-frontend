@@ -34,46 +34,52 @@
         </div>
     <div><button (click)="goBack()">go back</button></div> -->
 
-<div class="container flex">
-  <div>
-    <h3>Shipping Information</h3>
-    <ul>
-      <li>First Name: {{oneOrder.firstName}}</li>
-      <li>Last Name: {{oneOrder.lastName}}</li>
-      <li>Address: {{oneOrder.address}}</li>
-      <li>Email: {{oneOrder.email}}</li>
-      <li>Phone Number: {{oneOrder.phoneNumber}}</li>
-    </ul>
-    <h3>Payment Infomation</h3>
-    <ul>
-      <li>Credit Card: {{oneOrder.creditCardNumber}}</li>
-      <li>Expiration: {{oneOrder.expiration}}</li>
-      <li>CCV: {{oneOrder.ccv}}</li>
-    </ul>
-  </div>
-  <div>
+<div class="background">
+  <div class="container">
+    <div class="flex">
+      <div id="customer-details">
+        <div id="shippingInformation">
+          <h1>Shipping Information</h1>
+          <ul>
+            <li><span class="bold">First Name:</span> {{oneOrder.firstName}}</li>
+            <li><span class="bold">Last Name:</span> {{oneOrder.lastName}}</li>
+            <li><span class="bold">Address:</span> {{oneOrder.address}}</li>
+            <li><span class="bold">Email:</span> {{oneOrder.email}}</li>
+            <li><span class="bold">Phone Number:</span> {{oneOrder.phoneNumber}}</li>
+          </ul>
+        </div>
+        <div id="payment-infomation">
+          <h1>Payment Infomation</h1>
+          <ul>
+            <li><span class="bold">Credit Card:</span> {{oneOrder.creditCardNumber}}</li>
+            <li><span class="bold">Expiration:</span> {{oneOrder.expiration}}</li>
+            <li><span class="bold">CCV:</span> {{oneOrder.ccv}}</li>
+          </ul>
+        </div>
+      </div>
 
-    <h3>Order Details</h3>
-    <table>
-      <tr>
-        <th>Product</th>
-        <th>QTY.</th>
-        <th>Price</th>
-      </tr>
-      <tr *ngFor="let cartItem of cartItems">
-        <td>{{cartItem.product.name}}</td>
-        <td>{{cartItem.productQuantity}}</td>
-        <td>{{cartItem.subTotal/100}}</td>
-      </tr>
-      <tr>
-        <td>Sub Total: </td>
-        <td>{{oneOrder.subTotal/100}}</td>
-      </tr>
-      <tr>
-        <td>Total:</td>
-        <td>{{oneOrder.total / 100}}</td>
-      </tr>
-    </table>
+      <div id="order-summary">
+        <h1>Order Summary</h1>
+        <table>
+          <tr>
+            <th>Product</th>
+            <th>QTY.</th>
+            <th>Price</th>
+          </tr>
+          <tr *ngFor="let cartItem of cartItems">
+            <td>{{cartItem.product.name}}</td>
+            <td>{{cartItem.productQuantity}}</td>
+            <td>{{cartItem.subTotal/ 100 |currency}}</td>
+          </tr>
+
+        </table>
+        <div>
+          <h3>Sub Total: {{oneOrder.subTotal/ 100 |currency}}</h3>
+          <h3>Tax: {{tax/ 100 |currency}}</h3>
+          <h3>Total: {{oneOrder.total / 100 |currency}}</h3>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
-<div><button (click)="goBack()">go back</button></div>

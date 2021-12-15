@@ -1,4 +1,14 @@
-.confirmation{
-    align-items: center;
-    background-color: aqua;
+h1 {
+  text-align: center;
+  padding: 1rem;
+}
+
+.background {
+  background: #cdcdcd;
+  width: 100vw;
+  height: 100vh;
+}
+
+#confirmation {
+  padding-top: 10rem;
 }
