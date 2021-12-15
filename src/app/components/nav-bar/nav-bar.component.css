@@ -57,3 +57,7 @@ li a:hover {
   background-color: var(--secondary-color);
   border-radius: 8px;
 }
+.current{
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+}
